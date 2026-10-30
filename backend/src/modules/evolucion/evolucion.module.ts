@@ -1,9 +1,8 @@
 import { Module } from '@nestjs/common';
-import { EvolucionController } from './presentation/evolucion.controller';
-import { EvolucionService } from './application/evolucion.service';
+import { EvolucionController } from './infrastructure/presentation/evolucion.controller';
 
 @Module({
   controllers: [EvolucionController],
-  providers: [EvolucionService]
+  providers: []
 })
 export class EvolucionModule {}
