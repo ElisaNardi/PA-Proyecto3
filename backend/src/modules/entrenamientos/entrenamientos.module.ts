@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { EntrenamientosController } from './presentation/entrenamientos.controller';
+import { EntrenamientosController } from './infrastructure/presentation/entrenamientos.controller';
 import { EntrenamientosService } from './application/entrenamientos.service';
 
 import { EntrenamientoOrmEntity } from  './infrastructure/persistence/entrenamientosorm-entity';

@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { MonitoreoController } from './presentation/monitoreo.controller';
+import { MonitoreoController } from './infraestructure/presentation/monitoreo.controller';
 import { MonitoreoService } from './application/monitoreo.service';
 
 @Module({

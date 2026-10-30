@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { RutinasController } from './presentation/rutinas.controller';
+import { RutinasController } from './infrastructure/presentation/rutinas.controller';
 import { RutinasService } from './application/rutinas.service';
 
 import { RutinaOrmEntity } from './infrastructure/persistence/rutina.orm-entity';

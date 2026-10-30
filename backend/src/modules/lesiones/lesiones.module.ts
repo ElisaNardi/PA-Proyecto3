@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { LesionesController } from './presentation/lesiones.controller';
+import { LesionesController } from './infrastructure/presentation/lesiones.controller';
 import { LesionesService } from './application/lesiones.service';
 import { LesionOrmEntity } from './infrastructure/persistence/lesion.orm-entity';
 
