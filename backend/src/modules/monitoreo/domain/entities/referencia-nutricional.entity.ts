@@ -9,7 +9,8 @@ export class ReferenciaNutricional {
         private carbohidratos: Medida,
         private grasas: Medida,
         private fechaInicio: Date,
-        private fechaFin: Date | null
+        private fechaFin: Date | null,
+        private readonly fechaPesaje: Date
     ) {}
 
     public getId(): number | null {
@@ -42,5 +43,9 @@ export class ReferenciaNutricional {
 
     public getFechaFin(): Date | null {
         return this.fechaFin;
+    }
+
+    public getFechaPesaje(): Date {
+        return this.fechaPesaje;
     }
 }

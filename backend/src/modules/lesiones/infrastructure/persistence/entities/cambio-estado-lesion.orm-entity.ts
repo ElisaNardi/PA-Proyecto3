@@ -14,8 +14,8 @@ export class CambioEstadoLesionOrmEntity {
   @JoinColumn({ name: 'lesionId' })
   lesion!: LesionOrmEntity;
 
-  @Column({ type: 'enum', enum: EstadoLesion })
-  estadoAnterior!: EstadoLesion;
+  @Column({ type: 'enum', enum: EstadoLesion, nullable: true })
+  estadoAnterior!: EstadoLesion | null;
 
   @Column({ type: 'enum', enum: EstadoLesion })
   estadoActual!: EstadoLesion;

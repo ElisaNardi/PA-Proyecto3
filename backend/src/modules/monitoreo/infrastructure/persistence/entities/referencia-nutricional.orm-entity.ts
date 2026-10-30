@@ -31,4 +31,7 @@ export class ReferenciaNutricionalOrmEntity {
 
   @Column({ type: 'timestamp', nullable: true })
   fechaFin!: Date | null;
+
+  @Column({ type: 'timestamp' })
+  fechaPesaje!: Date;
 }

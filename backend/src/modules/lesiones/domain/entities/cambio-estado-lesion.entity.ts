@@ -3,7 +3,7 @@ import { EstadoLesion } from "../enums/estado-lesion.enum";
 export class CambioEstadoLesion {
     constructor(
         private readonly id: number | null,
-        private readonly estadoAnterior: EstadoLesion,
+        private readonly estadoAnterior: EstadoLesion | null,
         private readonly estadoActual: EstadoLesion,
         private readonly fecha: Date
     ) {}
@@ -12,7 +12,7 @@ export class CambioEstadoLesion {
         return this.id;
     }
 
-    public getEstadoAnterior(): EstadoLesion {
+    public getEstadoAnterior(): EstadoLesion | null {
         return this.estadoAnterior;
     }
 
