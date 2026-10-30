@@ -1,37 +1,22 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  ManyToOne,
-  JoinColumn,
-} from 'typeorm';
-
-import { RutinaOrmEntity } from './rutina.orm-entity';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { EntrenamientoOrmEntity } from './entrenamiento.orm-entity';
+import { DecimalColumn } from '../../../../../shared/infraestructure/decorators/decimal-column.decorator';
 
 @Entity('objetivos')
 export class ObjetivoOrmEntity {
   @PrimaryGeneratedColumn()
-  idObjetivo: number;
+  id!: number;
 
-  @Column({ type: 'integer' })
-  rutinaId: number;
+  @Column()
+  entrenamientoId!: number;
 
-  @Column({ type: 'varchar', length: 500 })
-  descripcion: string;
+  @ManyToOne(() => EntrenamientoOrmEntity)
+  @JoinColumn({ name: 'entrenamientoId' })
+  entrenamiento!: EntrenamientoOrmEntity;
 
-  @Column({
-    type: 'numeric',
-    precision: 7,
-    scale: 2,
-    nullable: true,
-  })
-  pesoObjetivo: number | null;
+  @Column({ type: 'varchar', length: 255 })
+  descripcion!: string;
 
-  @ManyToOne(
-    () => RutinaOrmEntity,
-    (rutina) => rutina.objetivos,
-    { nullable: false },
-  )
-  @JoinColumn({ name: 'rutinaId' })
-  rutina: RutinaOrmEntity;
+  @DecimalColumn({ precision: 5, scale: 2 })
+  pesoObjetivo!: number;
 }

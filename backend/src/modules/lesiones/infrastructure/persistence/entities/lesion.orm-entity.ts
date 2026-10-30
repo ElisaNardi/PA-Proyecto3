@@ -1,29 +1,28 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-} from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { BoxeadorOrmEntity } from '../../../../usuarios/infraestructure/persistence/entities/boxeador.orm-entity';
+import { Gravedad } from '../../../domain/enums/gravedad.enum';
 
 @Entity('lesiones')
 export class LesionOrmEntity {
   @PrimaryGeneratedColumn()
-  idLesion: number;
+  id!: number;
 
-  @Column({ type: 'integer' })
-  boxeadorId: number;
+  @Column()
+  boxeadorId!: number;
 
-  @Column({ type: 'varchar', length: 500 })
-  descripcion: string;
+  @ManyToOne(() => BoxeadorOrmEntity)
+  @JoinColumn({ name: 'boxeadorId' })
+  boxeador!: BoxeadorOrmEntity;
+
+  @Column({ type: 'varchar', length: 255 })
+  descripcion!: string;
 
   @Column({ type: 'varchar', length: 100 })
-  zona: string;
+  zona!: string;
 
-  @Column({ type: 'varchar', length: 20 })
-  gravedad: string;
+  @Column({ type: 'enum', enum: Gravedad })
+  gravedad!: Gravedad;
 
-  @Column({ type: 'varchar', length: 20, default: 'ACTIVA' })
-  estado: string;
-
-  @Column({ type: 'date' })
-  fecha: string;
+  @Column({ type: 'timestamp' })
+  fecha!: Date;
 }

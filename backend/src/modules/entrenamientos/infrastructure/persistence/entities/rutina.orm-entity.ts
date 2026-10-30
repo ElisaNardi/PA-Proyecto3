@@ -1,41 +1,15 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  ManyToOne,
-  OneToMany,
-  JoinColumn,
-} from 'typeorm';
-
-import { EntrenamientoOrmEntity } from  './entrenamientosorm-entity';
-import { EjercicioOrmEntity } from './ejercicio.orm-entity';
-import { ObjetivoOrmEntity } from './objetivo.orm-entity';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { EntrenamientoOrmEntity } from './entrenamiento.orm-entity';
 
 @Entity('rutinas')
 export class RutinaOrmEntity {
   @PrimaryGeneratedColumn()
-  idRutina: number;
+  id!: number;
 
-  @Column({ type: 'integer' })
-  entrenamientoId: number;
+  @Column()
+  entrenamientoId!: number;
 
-  @ManyToOne(
-    () => EntrenamientoOrmEntity,
-    (entrenamiento) => entrenamiento.rutinas,
-    { nullable: false },
-  )
+  @ManyToOne(() => EntrenamientoOrmEntity)
   @JoinColumn({ name: 'entrenamientoId' })
-  entrenamiento: EntrenamientoOrmEntity;
-
-  @OneToMany(
-    () => EjercicioOrmEntity,
-    (ejercicio) => ejercicio.rutina,
-  )
-  ejercicios: EjercicioOrmEntity[];
-
-  @OneToMany(
-    () => ObjetivoOrmEntity,
-    (objetivo) => objetivo.rutina,
-  )
-  objetivos: ObjetivoOrmEntity[];
+  entrenamiento!: EntrenamientoOrmEntity;
 }
