@@ -1,0 +1,5 @@
+export enum EstadoSugerencia {
+    PENDIENTE = 'PENDIENTE',
+    TOMADA_EN_CUENTA = 'TOMADA_EN_CUENTA',
+    NO_TOMADA_EN_CUENTA = 'NO_TOMADA_EN_CUENTA'
+}
