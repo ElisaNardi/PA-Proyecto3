@@ -1,7 +1,7 @@
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 import { BoxeadorOrmEntity } from '../../../../usuarios/infraestructure/persistence/entities/boxeador.orm-entity';
-import { TipoEntrenamiento } from './entrenamientosorm-entity';
+import { TipoEntrenamiento } from '../../../domain/enums/tipo-entrenamiento.enum';
 
 @Entity('entrenamientos')
 export class EntrenamientoOrmEntity {
