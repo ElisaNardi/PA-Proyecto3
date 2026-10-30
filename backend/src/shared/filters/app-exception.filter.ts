@@ -10,6 +10,7 @@ export class AppExceptionFilter implements ExceptionFilter {
     catch(exception: AppException, host: ArgumentsHost) {
         const response = host.switchToHttp().getResponse<Response>();
         const statusCode = STATUS_BY_CODE[exception.code] ?? 500;
+        
         response.status(statusCode).json({
             message: exception.message,
             statusCode

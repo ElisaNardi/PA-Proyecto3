@@ -10,8 +10,13 @@ async function bootstrap() {
   app.setGlobalPrefix('api');
 
   app.useGlobalPipes(
-    new ValidationPipe()
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true
+    })
   );
+  
   app.useGlobalFilters(
     new AppExceptionFilter()
   );
@@ -19,4 +24,4 @@ async function bootstrap() {
   await app.listen(process.env.PORT ?? 3000);
 }
 
-bootstrap();
+void bootstrap();
