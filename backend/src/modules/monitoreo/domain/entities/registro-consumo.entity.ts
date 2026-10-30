@@ -31,7 +31,7 @@ export class RegistroConsumo {
         return this.proteinasConsumidas.getMedida();
     }
 
-    public getCarbohidratosConsumidas(): number {
+    public getCarbohidratosConsumidos(): number {
         return this.carbohidratosConsumidos.getMedida();
     }
 

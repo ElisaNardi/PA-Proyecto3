@@ -12,9 +12,9 @@ export class MedicionFisica {
         private readonly fecha: Date,
         private readonly peso: Medida,
         private readonly altura: Medida,
-        private readonly porcentajeGrasa: Medida,
-        private readonly perimetros: Perimetros,
-        private readonly envergadura: Medida
+        private readonly porcentajeGrasa: Medida | null,
+        private readonly perimetros: Perimetros | null,
+        private readonly envergadura: Medida | null
     ) {}
 
     // TODO: implementar calculo de distancia a categoria
@@ -47,35 +47,35 @@ export class MedicionFisica {
         return this.altura.getMedida();
     }
 
-    public getPorcentajeGrasa(): number {
-        return this.porcentajeGrasa.getMedida();
+    public getPorcentajeGrasa(): number | null {
+        return this.porcentajeGrasa ? this.porcentajeGrasa.getMedida() : null;
     }
 
-    public getPerimetroBrazo(): number {
-        return this.perimetros.getBrazo();
+    public getPerimetroBrazo(): number | null {
+        return this.perimetros ? this.perimetros.getBrazo() : null;
     }
 
-    public getPerimetroCintura(): number {
-        return this.perimetros.getCintura();
+    public getPerimetroCintura(): number | null {
+        return this.perimetros ? this.perimetros.getCintura() : null;
     }
 
-    public getPerimetroCadera(): number {
-        return this.perimetros.getCadera();
+    public getPerimetroCadera(): number | null {
+        return this.perimetros ? this.perimetros.getCadera() : null;
     }
 
-    public getPerimetroPecho(): number {
-        return this.perimetros.getPecho();
+    public getPerimetroPecho(): number | null {
+        return this.perimetros ? this.perimetros.getPecho() : null;
     }
 
-    public getPerimetroMuslo(): number {
-        return this.perimetros.getMuslo();
+    public getPerimetroMuslo(): number | null {
+        return this.perimetros ? this.perimetros.getMuslo() : null;
     }
 
-    public getPerimetroPantorrilla(): number {
-        return this.perimetros.getPantorrilla();
+    public getPerimetroPantorrilla(): number | null {
+        return this.perimetros ? this.perimetros.getPantorrilla() : null;
     }
 
-    public getEnvergadura(): number {
-        return this.envergadura.getMedida();
+    public getEnvergadura(): number | null {
+        return this.envergadura ? this.envergadura.getMedida() : null;
     }
 }

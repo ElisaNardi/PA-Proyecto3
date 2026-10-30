@@ -1,5 +1,5 @@
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { BoxeadorOrmEntity } from '../../../../usuarios/infraestructure/persistence/entities/boxeador.orm-entity';
+import { BoxeadorOrmEntity } from '../../../../usuarios/infrastructure/persistence/entities/boxeador.orm-entity';
 import { Gravedad } from '../../../domain/enums/gravedad.enum';
 
 @Entity('lesiones')

@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
+import { EntrenamientosPersistenceModule } from './infrastructure/persistence/entrenamientos-persistence.module';
 
 
 @Module({
-  imports: [],
+  imports: [EntrenamientosPersistenceModule],
   controllers: [],
   providers: [],
 })

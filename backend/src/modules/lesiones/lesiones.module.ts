@@ -1,11 +1,10 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { LesionesPersistenceModule } from './infrastructure/persistence/lesiones-persistence.module';
 
-import { LesionesController } from './infrastructure/presentation/controllers/lesiones.controller';
 
 @Module({
-   imports: [],
-  controllers: [LesionesController],
+  imports: [LesionesPersistenceModule],
+  controllers: [],
   providers: []
 })
 export class LesionesModule {}

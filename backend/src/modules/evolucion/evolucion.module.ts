@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { EvolucionController } from './infraestructure/presentation/evolucion.controller';
+import { EvolucionController } from './infrastructure/presentation/evolucion.controller';
 
 @Module({
   controllers: [EvolucionController],

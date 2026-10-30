@@ -1,6 +1,5 @@
 import { Rol } from "../enums/rol.enum";
 import { Email } from "../value-objects/email.vo";
-import { Boxeador } from "./boxeador.entity";
 import { Usuario } from "./usuario.entity";
 
 export class Entrenador extends Usuario {
@@ -8,14 +7,8 @@ export class Entrenador extends Usuario {
         id: number | null,
         nombre: string,
         email: Email,
-        passwordHash: string,
-        rol: Rol,
-        private readonly boxeadores: Boxeador[]
+        passwordHash: string
     ) {
-        super(id, nombre, email, passwordHash, rol);
-    }
-
-    public getBoxeadores(): Boxeador[] {
-        return this.boxeadores;
+        super(id, nombre, email, passwordHash, Rol.ENTRENADOR);
     }
 }

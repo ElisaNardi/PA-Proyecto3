@@ -6,7 +6,6 @@ import { Rol } from "../enums/rol.enum";
 import { Sexo } from "../enums/sexo.enum";
 import { Email } from "../value-objects/email.vo";
 
-import { Entrenador } from "./entrenador.entity";
 import { Usuario } from "./usuario.entity";
 
 export class Boxeador extends Usuario {
@@ -15,14 +14,13 @@ export class Boxeador extends Usuario {
         nombre: string,
         email: Email,
         passwordHash: string,
-        rol: Rol,
-        private entrenador: Entrenador,
-        private readonly pesoInicial: Medida,
-        private readonly alturaInicial: Medida,
+        private entrenadorId: number | null,
+        private readonly pesoInicial: Medida | null,
+        private readonly alturaInicial: Medida | null,
         private readonly sexo: Sexo,
-        private categoria: CategoriaPeso
+        private categoria: CategoriaPeso | null
     ) {
-        super(id, nombre, email, passwordHash, rol);
+        super(id, nombre, email, passwordHash, Rol.BOXEADOR);
     }
 
     // TODO: implementar calculo de categoría de peso
@@ -30,23 +28,23 @@ export class Boxeador extends Usuario {
         throw new NotImplementedException();
     }
 
-    public getEntrenador(): Entrenador {
-        return this.entrenador;
+    public getEntrenadorId(): number | null {
+        return this.entrenadorId;
     }
 
-    public getPesoInicial(): number {
-        return this.pesoInicial.getMedida();
+    public getPesoInicial(): number | null {
+        return this.pesoInicial ? this.pesoInicial.getMedida() : null;
     }
 
-    public getAlturaInicial(): number {
-        return this.alturaInicial.getMedida();
+    public getAlturaInicial(): number | null {
+        return this.alturaInicial ? this.alturaInicial.getMedida() : null;
     }
 
     public getSexo(): Sexo {
         return this.sexo;
     }
 
-    public getCategoria(): CategoriaPeso {
+    public getCategoria(): CategoriaPeso | null {
         return this.categoria;
     }
 }

@@ -6,9 +6,20 @@ export class Ejercicio {
         private nombre: string,
         private descripcion: string,
         private repeticiones: number,
-        private series: number,
-        private peso: Medida
+        private series: string,
+        private peso: Medida | null,
+        private completado: boolean,
+        private pesoRealizado: Medida | null,
+        private repeticionesRealizadas: number | null
     ) {}
+
+    public completar(): void {
+        this.completado = true;
+    }
+
+    public fueCompletado(): boolean {
+        return this.completado;
+    }
 
     public getId(): number | null {
         return this.id;
@@ -26,11 +37,19 @@ export class Ejercicio {
         return this.repeticiones;
     }
 
-    public getSeries(): number {
+    public getSeries(): string {
         return this.series;
     }
 
-    public getPeso(): number {
-        return this.peso.getMedida();
+    public getPeso(): number | null {
+        return this.peso ? this.peso.getMedida() : null;
+    }
+
+    public getPesoRealizado(): number | null {
+        return this.pesoRealizado ? this.pesoRealizado.getMedida() : null;
+    }
+
+    public getRepeticionesRealizadas(): number | null {
+        return this.repeticionesRealizadas;
     }
 }

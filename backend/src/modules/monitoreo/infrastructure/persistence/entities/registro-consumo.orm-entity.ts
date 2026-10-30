@@ -1,5 +1,5 @@
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { BoxeadorOrmEntity } from '../../../../usuarios/infraestructure/persistence/entities/boxeador.orm-entity';
+import { BoxeadorOrmEntity } from '../../../../usuarios/infrastructure/persistence/entities/boxeador.orm-entity';
 import { DecimalColumn } from '../../../../../shared/infraestructure/decorators/decimal-column.decorator';
 
 @Entity('registros_consumo')
@@ -17,7 +17,7 @@ export class RegistroConsumoOrmEntity {
   @Column({ type: 'timestamp' })
   fecha!: Date;
 
-  @DecimalColumn({ precision: 5, scale: 2 })
+  @DecimalColumn({ precision: 6, scale: 2 })
   caloriasConsumidas!: number;
 
   @DecimalColumn({ precision: 5, scale: 2 })

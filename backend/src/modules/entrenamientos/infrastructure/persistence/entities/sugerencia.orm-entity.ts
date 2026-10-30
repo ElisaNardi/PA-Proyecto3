@@ -1,6 +1,6 @@
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { EntrenadorOrmEntity } from '../../../../usuarios/infraestructure/persistence/entities/entrenador.orm-entity';
-import { BoxeadorOrmEntity } from '../../../../usuarios/infraestructure/persistence/entities/boxeador.orm-entity';
+import { EntrenadorOrmEntity } from '../../../../usuarios/infrastructure/persistence/entities/entrenador.orm-entity';
+import { BoxeadorOrmEntity } from '../../../../usuarios/infrastructure/persistence/entities/boxeador.orm-entity';
 import { EstadoSugerencia } from '../../../domain/enums/estado-sugerencia.enum';
 
 @Entity('sugerencias')

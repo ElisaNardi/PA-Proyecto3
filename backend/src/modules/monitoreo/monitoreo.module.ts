@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
+import { MonitoreoPersistenceModule } from './infrastructure/persistence/monitoreo-persistence.module';
 
-import { MonitoreoController } from './infraestructure/presentation/monitoreo.controller';
 
 @Module({
-  controllers: [MonitoreoController],
+  imports: [MonitoreoPersistenceModule],
+  controllers: [],
   providers: []
 })
 export class MonitoreoModule {}

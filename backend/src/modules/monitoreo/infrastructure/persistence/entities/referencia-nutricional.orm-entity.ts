@@ -14,7 +14,7 @@ export class ReferenciaNutricionalOrmEntity {
   @JoinColumn({ name: 'objetivoId' })
   objetivo!: ObjetivoOrmEntity;
 
-  @DecimalColumn({ precision: 5, scale: 2 })
+  @DecimalColumn({ precision: 6, scale: 2 })
   caloriasDiarias!: number;
 
   @DecimalColumn({ precision: 5, scale: 2 })

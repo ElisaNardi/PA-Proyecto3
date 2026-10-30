@@ -6,6 +6,10 @@ export class Rutina {
         private readonly ejercicios: Ejercicio[]
     ) {}
 
+    public estaCompletada(): boolean {
+        return !this.ejercicios.some(e => !e.fueCompletado());
+    }
+
     public getId(): number | null {
         return this.id;
     }

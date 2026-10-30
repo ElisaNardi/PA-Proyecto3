@@ -1,13 +1,15 @@
+import { Medida } from "../../../../shared/domain/value-objects/medida.vo";
+
 export class ReferenciaNutricional {
     constructor(
         private readonly id: number | null,
         private objetivoId: number,
-        private caloriasDiarias: number,
-        private proteinas: number,
-        private carbohidratos: number,
-        private grasas: number,
+        private caloriasDiarias: Medida,
+        private proteinas: Medida,
+        private carbohidratos: Medida,
+        private grasas: Medida,
         private fechaInicio: Date,
-        private fechaFin: Date
+        private fechaFin: Date | null
     ) {}
 
     public getId(): number | null {
@@ -19,26 +21,26 @@ export class ReferenciaNutricional {
     }
 
     public getCaloriasDiarias(): number {
-        return this.caloriasDiarias;
+        return this.caloriasDiarias.getMedida();
     }
 
     public getProteinas(): number {
-        return this.proteinas;
+        return this.proteinas.getMedida();
     }
 
     public getCarbohidratos(): number {
-        return this.carbohidratos;
+        return this.carbohidratos.getMedida();
     }
 
     public getGrasas(): number {
-        return this.grasas;
+        return this.grasas.getMedida();
     }
 
     public getFechaInicio(): Date {
         return this.fechaInicio;
     }
 
-    public getFechaFin(): Date {
+    public getFechaFin(): Date | null {
         return this.fechaFin;
     }
 }

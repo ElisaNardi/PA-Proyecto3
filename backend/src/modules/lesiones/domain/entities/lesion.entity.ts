@@ -1,3 +1,4 @@
+import { EstadoLesion } from "../enums/estado-lesion.enum";
 import { Gravedad } from "../enums/gravedad.enum";
 import { CambioEstadoLesion } from "./cambio-estado-lesion.entity";
 
@@ -11,6 +12,10 @@ export class Lesion {
         private readonly fecha: Date,
         private readonly cambiosEstado: CambioEstadoLesion[]
     ) {}
+
+    public getEstadoActual(): EstadoLesion {
+        return this.cambiosEstado[this.cambiosEstado.length - 1].getEstadoActual();
+    }
 
     public getId(): number | null {
         return this.id;

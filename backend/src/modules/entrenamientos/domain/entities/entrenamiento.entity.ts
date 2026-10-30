@@ -15,6 +15,10 @@ export class Entrenamiento {
         private fechaPelea: Date | null
     ) {}
 
+    public estaRealizado(): boolean {
+        return !this.rutinas.some(r => !r.estaCompletada());
+    }
+
     public getId(): number | null {
         return this.id;
     }
