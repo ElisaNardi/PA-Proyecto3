@@ -1,6 +1,6 @@
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { RutinaOrmEntity } from './rutina.orm-entity';
-import { DecimalColumn } from '../../../../../shared/infraestructure/decorators/decimal-column.decorator';
+import { DecimalColumn } from '../../../../../shared/infrastructure/decorators/decimal-column.decorator';
 
 @Entity('ejercicios')
 export class EjercicioOrmEntity {

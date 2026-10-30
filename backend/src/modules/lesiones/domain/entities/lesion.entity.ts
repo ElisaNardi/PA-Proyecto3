@@ -14,7 +14,8 @@ export class Lesion {
     ) {}
 
     public getEstadoActual(): EstadoLesion {
-        return this.cambiosEstado[this.cambiosEstado.length - 1].getEstadoActual();
+        const ultimo = this.cambiosEstado.at(-1);
+        return ultimo ? ultimo.getEstadoActual() : EstadoLesion.ACTIVA;
     }
 
     public getId(): number | null {

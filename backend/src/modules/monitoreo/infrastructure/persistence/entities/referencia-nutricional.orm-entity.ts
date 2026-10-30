@@ -1,5 +1,5 @@
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { DecimalColumn } from '../../../../../shared/infraestructure/decorators/decimal-column.decorator';
+import { DecimalColumn } from '../../../../../shared/infrastructure/decorators/decimal-column.decorator';
 import { ObjetivoOrmEntity } from '../../../../entrenamientos/infrastructure/persistence/entities/objetivo.orm-entity';
 
 @Entity('referencias_nutricionales')

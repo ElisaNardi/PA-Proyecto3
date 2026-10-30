@@ -1,6 +1,6 @@
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { BoxeadorOrmEntity } from '../../../../usuarios/infrastructure/persistence/entities/boxeador.orm-entity';
-import { DecimalColumn } from '../../../../../shared/infraestructure/decorators/decimal-column.decorator';
+import { DecimalColumn } from '../../../../../shared/infrastructure/decorators/decimal-column.decorator';
 
 @Entity('mediciones_fisicas')
 export class MedicionFisicaOrmEntity {

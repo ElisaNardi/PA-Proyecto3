@@ -26,7 +26,7 @@ EVOBOX conecta entrenador y boxeador: planificación y seguimiento de entrenamie
 |---|---|
 | `auth` | Login y registro (no es un bounded context propio: responsabilidad técnica transversal) |
 | `usuarios` | Perfil de entrenador/boxeador y su vínculo |
-| `entrenamiento` | Entrenamientos, rutinas, ejercicios, objetivos, sugerencias |
+| `entrenamientos` | Entrenamientos, rutinas, ejercicios, objetivos, sugerencias |
 | `lesiones` | Lesiones y su historial de estados |
 | `monitoreo` | Mediciones físicas y nutrición |
 | `evolucion` | Estadísticas de progreso (sin entidades propias) |
@@ -40,7 +40,8 @@ Mapeo de entidades, reglas y endpoints de cada módulo: ver `Análisis orientado
 PA-Proyecto3/
 ├── backend/
 │   ├── src/
-│   │   ├── modules/{auth,usuarios,entrenamiento,lesiones,monitoreo,evolucion,shared}/
+│   │   ├── modules/{auth,usuarios,entrenamientos,lesiones,monitoreo,evolucion}/
+│   │   ├── shared/
 │   │   ├── app.module.ts
 │   │   └── main.ts
 │   ├── compose.yaml
