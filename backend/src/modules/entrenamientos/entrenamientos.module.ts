@@ -1,20 +1,10 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { EntrenamientosController } from './infrastructure/presentation/entrenamientos.controller';
-import { EntrenamientosService } from './application/entrenamientos.service';
-
-import { EntrenamientoOrmEntity } from  './infrastructure/persistence/entrenamientosorm-entity';
-import { ObjetivoOrmEntity } from './infrastructure/persistence/objetivo.orm-entity';
+import { EntrenamientosController } from './infrastructure/presentation/controllers/entrenamientos.controller';
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([
-      EntrenamientoOrmEntity,
-      ObjetivoOrmEntity,
-    ]),
-  ],
+  imports: [],
   controllers: [EntrenamientosController],
-  providers: [EntrenamientosService],
+  providers: [],
 })
 export class EntrenamientosModule {}

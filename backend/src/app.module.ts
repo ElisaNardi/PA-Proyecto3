@@ -5,7 +5,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsuariosModule } from './modules/usuarios/usuarios.module';
 import { EntrenamientosModule } from './modules/entrenamientos/entrenamientos.module';
-import { RutinasModule } from './modules/rutinas/rutinas.module';
 import { LesionesModule } from './modules/lesiones/lesiones.module';
 import { MonitoreoModule } from './modules/monitoreo/monitoreo.module';
 import { EvolucionModule } from './modules/evolucion/evolucion.module';
@@ -48,7 +47,6 @@ import databaseConfig from './config/database.config';
     AuthModule,
     UsuariosModule,
     EntrenamientosModule,
-    RutinasModule,
     LesionesModule,
     MonitoreoModule,
     EvolucionModule,

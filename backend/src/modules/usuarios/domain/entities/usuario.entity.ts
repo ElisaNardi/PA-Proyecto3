@@ -7,7 +7,7 @@ export class Usuario {
         private nombre: string,
         private email: Email,
         private passwordHash: string,
-        private rol: Rol
+        private readonly rol: Rol
     ) {}
 
     public getId(): number | null {
