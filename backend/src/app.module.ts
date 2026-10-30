@@ -10,6 +10,7 @@ import { MonitoreoModule } from './modules/monitoreo/monitoreo.module';
 import { EvolucionModule } from './modules/evolucion/evolucion.module';
 
 import databaseConfig from './config/database.config';
+import { UnitOfWorkModule } from './shared/infrastructure/unit-of-work/unit-of-work.module';
 
 @Module({
   imports: [
@@ -44,6 +45,7 @@ import databaseConfig from './config/database.config';
         }),
     }),
 
+    UnitOfWorkModule,
     AuthModule,
     UsuariosModule,
     EntrenamientosModule,
