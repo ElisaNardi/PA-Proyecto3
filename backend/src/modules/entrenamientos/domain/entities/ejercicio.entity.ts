@@ -13,8 +13,10 @@ export class Ejercicio {
         private repeticionesRealizadas: number | null
     ) {}
 
-    public completar(): void {
+    public completar(pesoRealizado: Medida | null, repeticionesRealizadas: number | null): void {
         this.completado = true;
+        this.pesoRealizado = pesoRealizado;
+        this.repeticionesRealizadas = repeticionesRealizadas;
     }
 
     public fueCompletado(): boolean {

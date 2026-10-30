@@ -55,7 +55,7 @@ PA-Proyecto3/
 
 ## 5. Requisitos
 
-Node.js, npm, Docker (+ Docker Compose), Git.
+Node.js **≥ 24.9** (Jest necesita `require(esm)` nativo; con versiones anteriores los tests fallan), npm, Docker (+ Docker Compose), Git.
 
 ## 6. Instalación
 

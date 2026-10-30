@@ -7,7 +7,7 @@ export class Rutina {
     ) {}
 
     public estaCompletada(): boolean {
-        return !this.ejercicios.some(e => !e.fueCompletado());
+        return this.ejercicios.length > 0 && this.ejercicios.every(e => e.fueCompletado());
     }
 
     public getId(): number | null {

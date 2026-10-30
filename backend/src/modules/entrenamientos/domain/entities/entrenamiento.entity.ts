@@ -16,7 +16,7 @@ export class Entrenamiento {
     ) {}
 
     public estaRealizado(): boolean {
-        return !this.rutinas.some(r => !r.estaCompletada());
+        return this.rutinas.length > 0 && this.rutinas.every(r => r.estaCompletada());
     }
 
     public getId(): number | null {
