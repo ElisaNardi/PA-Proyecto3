@@ -2,7 +2,7 @@ import { EstadoLesion } from "../enums/estado-lesion.enum";
 
 export interface ReconstruirCambioEstado {
     id: number;
-    estadoAnterior?: EstadoLesion;
+    estadoAnterior: EstadoLesion | null;
     estadoActual: EstadoLesion;
     fecha: Date;
 }
