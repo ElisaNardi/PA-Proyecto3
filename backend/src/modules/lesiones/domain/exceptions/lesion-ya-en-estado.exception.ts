@@ -5,7 +5,7 @@ export class LesionYaEnEseEstadoException extends DomainException {
     constructor() {
         super(
             'No es posible cambiar al mismo estado actual',
-            AppErrorCode.INVALID_INPUT
+            AppErrorCode.CONFLICT
         );
     }
 }
