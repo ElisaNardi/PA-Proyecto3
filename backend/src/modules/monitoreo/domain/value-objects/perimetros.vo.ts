@@ -1,5 +1,7 @@
 import { Medida } from "../../../../shared/domain/value-objects/medida.vo";
 
+import { CrearPerimetrosInput } from "../inputs/crear-perimetros.input";
+
 export class Perimetros {
     private constructor(
         private readonly brazo: Medida,
@@ -10,20 +12,13 @@ export class Perimetros {
         private readonly pantorrilla: Medida
     ) {}
 
-    public static crear(
-        brazo: number,
-        cintura: number,
-        cadera: number,
-        pecho: number,
-        muslo: number,
-        pantorrilla: number
-    ): Perimetros {
-        const brazoValidado = Medida.crear(brazo);
-        const cinturaValidada = Medida.crear(cintura);
-        const caderaValidada = Medida.crear(cadera);
-        const pechoValidado = Medida.crear(pecho);
-        const musloValidado = Medida.crear(muslo);
-        const pantorrillaValidada = Medida.crear(pantorrilla);
+    public static crear(input: CrearPerimetrosInput): Perimetros {
+        const brazoValidado = Medida.crear(input.brazo);
+        const cinturaValidada = Medida.crear(input.cintura);
+        const caderaValidada = Medida.crear(input.cadera);
+        const pechoValidado = Medida.crear(input.pecho);
+        const musloValidado = Medida.crear(input.muslo);
+        const pantorrillaValidada = Medida.crear(input.pantorrilla);
         
         return new Perimetros(
             brazoValidado,

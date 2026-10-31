@@ -1,4 +1,4 @@
-import { ValorNegativoException } from "../../../../shared/domain/exceptions/valor-negativo.exceptiont";
+import { ValorNegativoException } from "../../../../shared/domain/exceptions/valor-negativo.exception";
 import { Medida } from "../../../../shared/domain/value-objects/medida.vo";
 
 import { CumplimientoInvalidoException } from "../exceptions/cumplimiento-invalido.exception";
