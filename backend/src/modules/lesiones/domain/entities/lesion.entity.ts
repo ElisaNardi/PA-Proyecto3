@@ -1,5 +1,7 @@
 import { EstadoLesion } from "../enums/estado-lesion.enum";
 import { Gravedad } from "../enums/gravedad.enum";
+import { LesionYaEnEseEstadoException } from "../exceptions/lesion-ya-en-estado.exception";
+
 import { CambioEstadoLesion } from "./cambio-estado-lesion.entity";
 
 export class Lesion {
@@ -13,9 +15,33 @@ export class Lesion {
         private readonly cambiosEstado: CambioEstadoLesion[]
     ) {}
 
+    public marcarActiva(): void {
+        this.cambiarEstado(EstadoLesion.ACTIVA);
+    }
+
+    public marcarRecuperada(): void {
+        this.cambiarEstado(EstadoLesion.RECUPERADA);
+    }
+
+    private cambiarEstado(nuevo: EstadoLesion): void {
+        const actual = this.getEstadoActual();
+        if (actual === nuevo) {
+            throw new LesionYaEnEseEstadoException();
+        }
+
+        const nuevoCambio = CambioEstadoLesion.crear({
+            estadoAnterior: actual,
+            estadoNuevo: nuevo
+        });
+        this.cambiosEstado.push(nuevoCambio);
+    }
+
     public getEstadoActual(): EstadoLesion {
-        const ultimo = this.cambiosEstado.at(-1);
-        return ultimo ? ultimo.getEstadoActual() : EstadoLesion.ACTIVA;
+        return this.cambiosEstado.at(-1)?.getEstadoActual() ?? EstadoLesion.ACTIVA;
+    }
+
+    public getCambiosEstado(): readonly CambioEstadoLesion[] {
+        return [...this.cambiosEstado];
     }
 
     public getId(): number | null {
@@ -40,9 +66,5 @@ export class Lesion {
 
     public getFecha(): Date {
         return this.fecha;
-    }
-
-    public getCambiosEstado(): CambioEstadoLesion[] {
-        return this.cambiosEstado;
     }
 }

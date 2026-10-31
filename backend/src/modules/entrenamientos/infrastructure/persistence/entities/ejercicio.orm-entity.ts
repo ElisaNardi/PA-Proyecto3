@@ -1,4 +1,5 @@
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+
 import { RutinaOrmEntity } from './rutina.orm-entity';
 import { DecimalColumn } from '../../../../../shared/infrastructure/decorators/decimal-column.decorator';
 
@@ -20,11 +21,14 @@ export class EjercicioOrmEntity {
   @Column({ type: 'varchar', length: 255 })
   descripcion!: string;
 
-  @Column({ type: 'int' })
-  repeticiones!: number;
+  @Column({ type: 'int', nullable: true })
+  repeticiones!: number | null;
+  
+  @Column({ type: 'int', nullable: true })
+  duracionSegundos!: number | null;
 
-  @Column({ type: 'varchar', length: 50 })
-  series!: string;
+  @Column({ type: 'int' })
+  series!: number;
 
   @DecimalColumn({ precision: 5, scale: 2, nullable: true })
   peso!: number | null;
@@ -37,4 +41,7 @@ export class EjercicioOrmEntity {
 
   @Column({ type: 'int', nullable: true })
   repeticionesRealizadas!: number | null;
+  
+  @Column({ type: 'int', nullable: true })
+  segundosRealizados!: number | null;
 }
