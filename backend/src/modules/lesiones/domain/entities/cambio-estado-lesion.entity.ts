@@ -22,7 +22,7 @@ export class CambioEstadoLesion {
     public static reconstruir(input: ReconstruirCambioEstado): CambioEstadoLesion {
         return new CambioEstadoLesion(
             input.id,
-            input.estadoAnterior ?? null,
+            input.estadoAnterior,
             input.estadoActual,
             input.fecha
         );
