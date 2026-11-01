@@ -8,15 +8,16 @@ import { EntrenamientosModule } from './modules/entrenamientos/entrenamientos.mo
 import { LesionesModule } from './modules/lesiones/lesiones.module';
 import { MonitoreoModule } from './modules/monitoreo/monitoreo.module';
 import { EvolucionModule } from './modules/evolucion/evolucion.module';
+import { UnitOfWorkModule } from './shared/infrastructure/unit-of-work/unit-of-work.module';
 
 import databaseConfig from './config/database.config';
-import { UnitOfWorkModule } from './shared/infrastructure/unit-of-work/unit-of-work.module';
+import jwtConfig from './config/jwt.config';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      load: [databaseConfig],
+      load: [databaseConfig, jwtConfig],
     }),
 
     TypeOrmModule.forRootAsync({
