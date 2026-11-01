@@ -2,7 +2,7 @@ import { NotImplementedException } from "@nestjs/common";
 import { CategoriaPeso } from "../../../../shared/domain/enums/categoria-peso.enum";
 import { Medida } from "../../../../shared/domain/value-objects/medida.vo";
 
-import { Rol } from "../enums/rol.enum";
+import { Rol } from "../../../../shared/domain/enums/rol.enum";
 import { Sexo } from "../enums/sexo.enum";
 import { Email } from "../value-objects/email.vo";
 
@@ -21,6 +21,10 @@ export class Boxeador extends Usuario {
         private categoria: CategoriaPeso | null
     ) {
         super(id, nombre, email, passwordHash, Rol.BOXEADOR);
+    }
+
+    public vincularA(entrenadorId: number): void {
+        this.entrenadorId = entrenadorId;
     }
 
     // TODO: implementar calculo de categoría de peso

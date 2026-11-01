@@ -1,6 +1,6 @@
 import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryColumn } from 'typeorm';
 
-import { DecimalColumn } from '../../../../../shared/infrastructure/decorators/decimal-column.decorator';
+import { DecimalColumn } from '../../../../../shared/infrastructure/persistence/decorators/decimal-column.decorator';
 import { CategoriaPeso } from '../../../../../shared/domain/enums/categoria-peso.enum';
 
 import { Sexo } from '../../../domain/enums/sexo.enum';

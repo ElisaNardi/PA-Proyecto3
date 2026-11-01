@@ -1,9 +1,12 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
 
+import { USUARIOS_REPOSITORY_TOKEN } from "../../domain/ports/usuarios-repository.port";
+
 import { UsuarioOrmEntity } from "./entities/usuario.orm-entity";
 import { BoxeadorOrmEntity } from "./entities/boxeador.orm-entity";
 import { EntrenadorOrmEntity } from "./entities/entrenador.orm-entity";
+import { UsuariosRepository } from "./repositories/usuarios-repository.adapter";
 
 @Module({
     imports: [
@@ -14,11 +17,14 @@ import { EntrenadorOrmEntity } from "./entities/entrenador.orm-entity";
         ])
     ],
     providers: [
-        // acá ponemos todos los repos y tokens, como { provide: USUARIOS_REPOSITORY_TOKEN, useClass: UsuariosRepository }
+        {
+            provide: USUARIOS_REPOSITORY_TOKEN,
+            useClass: UsuariosRepository
+        }
     ],
     exports: [
         TypeOrmModule,
-        // acá los tokens, como USUARIOS_REPOSITORY_TOKEN
+        USUARIOS_REPOSITORY_TOKEN
     ]
 })
 export class UsuariosPersistenceModule {}
