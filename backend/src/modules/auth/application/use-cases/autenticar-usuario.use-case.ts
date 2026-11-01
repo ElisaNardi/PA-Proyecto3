@@ -1,7 +1,7 @@
 import { Inject, Injectable, UnauthorizedException } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
 
-import { Payload } from "../../../../shared/infrastructure/security/interfaces/jwt-payload.interface";
+import { JwtPayload } from "../../../../shared/infrastructure/security/interfaces/jwt-payload.interface";
 
 import { type IUsuariosRepository, USUARIOS_REPOSITORY_TOKEN } from "../../../usuarios/domain/ports/usuarios-repository.port";
 
@@ -31,7 +31,7 @@ export class AutenticarUsuarioUseCase {
             throw new UnauthorizedException();
         }
 
-        const payload: Payload = {
+        const payload: JwtPayload = {
             sub: usuario.getId()!,
             rol: usuario.getRol()
         }
