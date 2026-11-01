@@ -32,12 +32,23 @@ export class UsuariosRepository implements IUsuariosRepository {
         return UsuarioOrmMapper.toDomainEntrenador(usuarioGuardado);
     }
 
+    async findById(id: number): Promise<Usuario | null> {
+        const usuarioOrm = await this.gestor.actual.createQueryBuilder(UsuarioOrmEntity, 'usuarios')
+                                                   .where('usuarios.id = :id', { id })
+                                                   .getOne();
+        if (!usuarioOrm) return null;
+        return this.reconstruirDesdeOrm(usuarioOrm);
+    }
+
     async findByEmail(email: string): Promise<Usuario | null> {
         const usuarioOrm = await this.gestor.actual.createQueryBuilder(UsuarioOrmEntity, 'usuarios')
                                                    .where('usuarios.email = :email', { email })
                                                    .getOne();
         if (!usuarioOrm) return null;
+        return this.reconstruirDesdeOrm(usuarioOrm);
+    }
 
+    private async reconstruirDesdeOrm(usuarioOrm: UsuarioOrmEntity): Promise<Usuario> {
         if (usuarioOrm.rol === Rol.BOXEADOR) {
             const boxeadorOrm = await this.gestor.actual.createQueryBuilder(BoxeadorOrmEntity, 'boxeadores')
                                                         .where('boxeadores.id = :id', { id: usuarioOrm.id })

@@ -23,6 +23,10 @@ export class Boxeador extends Usuario {
         super(id, nombre, email, passwordHash, Rol.BOXEADOR);
     }
 
+    public vincularA(entrenadorId: number): void {
+        this.entrenadorId = entrenadorId;
+    }
+
     // TODO: implementar calculo de categoría de peso
     public calcularCategoria(): CategoriaPeso {
         throw new NotImplementedException();

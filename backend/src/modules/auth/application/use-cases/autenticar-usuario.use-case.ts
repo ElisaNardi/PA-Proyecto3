@@ -8,7 +8,7 @@ import { type IUsuariosRepository, USUARIOS_REPOSITORY_TOKEN } from "../../../us
 import { type IHasher, HASHER_TOKEN } from "../ports/hasher.port";
 import { AutenticarUsuarioDto } from "../dtos/autenticar-usuario.dto";
 import { AutenticarUsuarioResponse } from "../responses/autenticar-usuario.response";
-import { UsuarioResponseMapper } from "../mappers/usuarios-response.mapper";
+import { UsuarioAuthResponseMapper } from "../mappers/usuarios-auth-response.mapper";
 
 @Injectable()
 export class AutenticarUsuarioUseCase {
@@ -37,6 +37,6 @@ export class AutenticarUsuarioUseCase {
         }
         const accessToken = this.jwtService.sign(payload);
 
-        return UsuarioResponseMapper.toAutenticarUsuarioResponse(usuario, accessToken);
+        return UsuarioAuthResponseMapper.toAutenticarUsuarioResponse(usuario, accessToken);
     }
 }

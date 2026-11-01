@@ -8,7 +8,7 @@ import { type IUsuariosRepository, USUARIOS_REPOSITORY_TOKEN } from "../../../us
 
 import { UsuarioResponse } from "../responses/usuario.response";
 import { RegistrarUsuarioDto } from "../dtos/registrar-usuario.dto";
-import { UsuarioResponseMapper } from "../mappers/usuarios-response.mapper";
+import { UsuarioAuthResponseMapper } from "../mappers/usuarios-auth-response.mapper";
 import { EmailYaRegistradoException } from "../exceptions/email-ya-registrado.exception";
 import { type IHasher, HASHER_TOKEN } from "../ports/hasher.port";
 
@@ -46,7 +46,7 @@ export class RegistrarUsuarioUseCase {
         
         return this.uow.runInTransaction(async () => {
             const guardado = await this.repo.save(usuario);
-            return UsuarioResponseMapper.toUsuarioResponse(guardado);
+            return UsuarioAuthResponseMapper.toUsuarioResponse(guardado);
         });
     }
 }

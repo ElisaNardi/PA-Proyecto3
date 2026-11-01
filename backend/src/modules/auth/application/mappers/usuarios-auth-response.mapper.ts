@@ -2,7 +2,7 @@ import { Usuario } from "../../../usuarios/domain/entities/usuario.entity";
 import { AutenticarUsuarioResponse } from "../responses/autenticar-usuario.response";
 import { UsuarioResponse } from "../responses/usuario.response";
 
-export class UsuarioResponseMapper {
+export class UsuarioAuthResponseMapper {
     static toUsuarioResponse(usuario: Usuario): UsuarioResponse {
         return {
             idUsuario: usuario.getId()!,
