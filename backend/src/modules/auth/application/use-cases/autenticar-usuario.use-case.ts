@@ -1,12 +1,13 @@
 import { Inject, Injectable, UnauthorizedException } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
 
+import { Payload } from "../../../../shared/infrastructure/security/interfaces/jwt-payload.interface";
+
 import { type IUsuariosRepository, USUARIOS_REPOSITORY_TOKEN } from "../../../usuarios/domain/ports/usuarios-repository.port";
 
 import { type IHasher, HASHER_TOKEN } from "../ports/hasher.port";
 import { AutenticarUsuarioDto } from "../dtos/autenticar-usuario.dto";
 import { AutenticarUsuarioResponse } from "../responses/autenticar-usuario.response";
-import { Payload } from "../interfaces/payload.interface";
 import { UsuarioResponseMapper } from "../mappers/usuarios-response.mapper";
 
 @Injectable()

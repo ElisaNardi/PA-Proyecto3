@@ -1,4 +1,4 @@
-import { Rol } from "../../../usuarios/domain/enums/rol.enum";
+import { Rol } from "../../../../shared/domain/enums/rol.enum";
 
 export interface AutenticarUsuarioResponse {
     accessToken: string;

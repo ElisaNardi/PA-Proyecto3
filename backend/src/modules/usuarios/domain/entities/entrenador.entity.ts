@@ -1,4 +1,4 @@
-import { Rol } from "../enums/rol.enum";
+import { Rol } from "../../../../shared/domain/enums/rol.enum";
 import { Email } from "../value-objects/email.vo";
 import { Usuario } from "./usuario.entity";
 

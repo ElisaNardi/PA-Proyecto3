@@ -12,6 +12,7 @@ import { UnitOfWorkModule } from './shared/infrastructure/unit-of-work/unit-of-w
 
 import databaseConfig from './config/database.config';
 import jwtConfig from './config/jwt.config';
+import { JwtConfigModule } from './shared/infrastructure/security/jwt-config.module';
 
 @Module({
   imports: [
@@ -42,6 +43,7 @@ import jwtConfig from './config/jwt.config';
     }),
 
     UnitOfWorkModule,
+    JwtConfigModule,
     AuthModule,
     UsuariosModule,
     EntrenamientosModule,

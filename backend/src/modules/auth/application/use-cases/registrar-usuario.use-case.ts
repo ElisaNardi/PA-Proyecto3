@@ -2,7 +2,7 @@ import { Inject, Injectable } from "@nestjs/common";
 
 import { type IUnitOfWork, UNIT_OF_WORK_TOKEN } from "../../../../shared/application/unit-of-work/unit-of-work.port";
 
-import { Rol } from "../../../usuarios/domain/enums/rol.enum";
+import { Rol } from "../../../../shared/domain/enums/rol.enum";
 import { UsuariosFactory } from "../../../usuarios/domain/factories/usuarios.factory";
 import { type IUsuariosRepository, USUARIOS_REPOSITORY_TOKEN } from "../../../usuarios/domain/ports/usuarios-repository.port";
 

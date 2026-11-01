@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
-import { JwtModule } from '@nestjs/jwt';
 
 import { UsuariosPersistenceModule } from '../usuarios/infrastructure/persistence/usuarios-persistence.module';
 
@@ -10,25 +8,18 @@ import { RegistrarUsuarioUseCase } from './application/use-cases/registrar-usuar
 
 import { AuthController } from './infrastructure/presentation/auth.controller';
 import { BcryptHasher } from './infrastructure/adapters/bcrypt-hasher.adapter';
+import { AutenticarUsuarioUseCase } from './application/use-cases/autenticar-usuario.use-case';
 
 @Module({
   imports: [
-    UsuariosPersistenceModule,
-    JwtModule.registerAsync({
-      inject: [ConfigService],
-      useFactory: (configService: ConfigService) => ({
-        secret: configService.getOrThrow<string>('jwt.secret'),
-        signOptions: {
-          expiresIn: configService.get<number>('jwt.expiresIn')
-        }
-      })
-    })
+    UsuariosPersistenceModule
   ],
   controllers: [
     AuthController
   ],
   providers: [
     RegistrarUsuarioUseCase,
+    AutenticarUsuarioUseCase,
     AuthFacade,
     {
       provide: HASHER_TOKEN,
