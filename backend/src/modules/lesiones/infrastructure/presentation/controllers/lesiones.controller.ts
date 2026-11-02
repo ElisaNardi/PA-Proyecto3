@@ -31,7 +31,7 @@ export class LesionesController {
     @UseGuards(JwtAuthGuard, RolesGuard)
     @Roles(Rol.BOXEADOR)
     async actualizarEstadoLesion(
-        @Param(':idLesion', ParseIntPipe) idLesion: number,
+        @Param('idLesion', ParseIntPipe) idLesion: number,
         @UsuarioAutenticado() usuario: JwtPayload,
         @Body() body: ActualizarEstadoLesionDto
     ): Promise<ActualizarEstadoLesionResponse> {
