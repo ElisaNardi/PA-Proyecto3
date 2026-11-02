@@ -1,4 +1,4 @@
-import { Injectable, NotAcceptableException } from "@nestjs/common";
+import { Injectable } from "@nestjs/common";
 
 import { GestorEntityManager } from "../../../../../shared/infrastructure/unit-of-work/gestor-entity-manager";
 
