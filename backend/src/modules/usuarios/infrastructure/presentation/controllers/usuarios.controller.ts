@@ -38,8 +38,7 @@ export class UsuariosController {
     }
 
     @Get('boxeadores/:idBoxeador')
-    @UseGuards(JwtAuthGuard, RolesGuard)
-    @Roles(Rol.BOXEADOR)
+    @UseGuards(JwtAuthGuard)
     async obtenerPerfilBoxeador(
         @Param('idBoxeador', ParseIntPipe) idBoxeador: number,
         @UsuarioAutenticado() usuario: JwtPayload
