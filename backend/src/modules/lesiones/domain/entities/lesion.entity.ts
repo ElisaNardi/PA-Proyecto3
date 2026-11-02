@@ -37,7 +37,15 @@ export class Lesion {
     }
 
     public getEstadoActual(): EstadoLesion {
-        return this.cambiosEstado.at(-1)?.getEstadoActual() ?? EstadoLesion.ACTIVA;
+        if (this.cambiosEstado.length === 0) {
+            return EstadoLesion.ACTIVA;
+        }
+
+        const masReciente = this.cambiosEstado.reduce((masReciente, actual) =>
+            actual.getFecha() > masReciente.getFecha() ? actual : masReciente
+        );
+
+        return masReciente.getEstadoActual();
     }
 
     public getCambiosEstado(): readonly CambioEstadoLesion[] {
