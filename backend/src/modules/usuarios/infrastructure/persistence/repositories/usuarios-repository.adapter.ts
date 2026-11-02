@@ -1,8 +1,8 @@
 import { Injectable } from "@nestjs/common";
 
 import { GestorEntityManager } from "../../../../../shared/infrastructure/unit-of-work/gestor-entity-manager";
-
 import { Rol } from "../../../../../shared/domain/enums/rol.enum";
+
 import { Usuario } from "../../../domain/entities/usuario.entity";
 import { Boxeador } from "../../../domain/entities/boxeador.entity";
 import { IUsuariosRepository } from "../../../domain/ports/usuarios-repository.port";
@@ -46,6 +46,15 @@ export class UsuariosRepository implements IUsuariosRepository {
                                                    .getOne();
         if (!usuarioOrm) return null;
         return this.reconstruirDesdeOrm(usuarioOrm);
+    }
+
+    async findBoxeadoresByEntrenador(entrenadorId: number): Promise<Boxeador[]> {
+        const boxeadoresOrm = await this.gestor.actual.createQueryBuilder(BoxeadorOrmEntity, 'boxeadores')
+                                                      .innerJoinAndSelect('boxeadores.usuario', 'usuarios')
+                                                      .where('boxeadores.entrenadorId = :entrenadorId', { entrenadorId })
+                                                      .orderBy('usuarios.nombre', 'ASC')
+                                                      .getMany();
+        return boxeadoresOrm.map((boxeadorOrm) => UsuarioOrmMapper.toDomainBoxeador(boxeadorOrm.usuario, boxeadorOrm));
     }
 
     private async reconstruirDesdeOrm(usuarioOrm: UsuarioOrmEntity): Promise<Usuario> {

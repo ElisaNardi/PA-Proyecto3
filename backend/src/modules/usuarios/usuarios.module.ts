@@ -5,6 +5,7 @@ import { UsuariosController } from './infrastructure/presentation/controllers/us
 
 import { VincularBoxeadorAEntrenadorUseCase } from './application/use-cases/vincular-boxeador-a-entrenador.use-case';
 import { UsuariosFacade } from './application/facades/usuarios.facade';
+import { ObtenerBoxeadoresDeEntrenadorUseCase } from './application/use-cases/obtener-boxeadores-de-entrenador.use-case';
 
 
 @Module({
@@ -16,6 +17,7 @@ import { UsuariosFacade } from './application/facades/usuarios.facade';
   ],
   providers: [
     VincularBoxeadorAEntrenadorUseCase,
+    ObtenerBoxeadoresDeEntrenadorUseCase,
     UsuariosFacade
   ],
   exports: [

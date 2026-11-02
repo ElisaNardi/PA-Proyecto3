@@ -1,4 +1,4 @@
-import { Body, Controller, Param, ParseIntPipe, Post, UseGuards } from "@nestjs/common";
+import { Body, Controller, Get, Param, ParseIntPipe, Post, UseGuards } from "@nestjs/common";
 
 import { Rol } from "../../../../../shared/domain/enums/rol.enum";
 
@@ -24,5 +24,15 @@ export class UsuariosController {
         @Body() dto: VincularBoxeadorDto
     ) {
         return this.usuariosFacade.vincular(idEntrenador, usuario.sub, dto);
+    }
+
+    @Get('entrenadores/:idEntrenador/boxeadores')
+    @UseGuards(JwtAuthGuard, RolesGuard)
+    @Roles(Rol.ENTRENADOR)
+    obtenerBoxeadores(
+        @Param('idEntrenador', ParseIntPipe) idEntrenador: number,
+        @UsuarioAutenticado() usuario: JwtPayload
+    ) {
+        return this.usuariosFacade.obtenerBoxeadores(idEntrenador, usuario.sub);
     }
 }
