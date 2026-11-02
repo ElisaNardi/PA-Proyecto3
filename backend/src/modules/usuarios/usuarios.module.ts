@@ -5,6 +5,7 @@ import { UsuariosController } from './infrastructure/presentation/controllers/us
 
 import { VincularBoxeadorAEntrenadorUseCase, ObtenerBoxeadoresDeEntrenadorUseCase, ObtenerPerfilBoxeadorUseCase } from './application/use-cases';
 import { UsuariosFacade } from './application/facades/usuarios.facade';
+import { BoxeadorFinder } from './application/services/boxeador.finder';
 
 @Module({
   imports: [
@@ -17,10 +18,12 @@ import { UsuariosFacade } from './application/facades/usuarios.facade';
     VincularBoxeadorAEntrenadorUseCase,
     ObtenerBoxeadoresDeEntrenadorUseCase,
     ObtenerPerfilBoxeadorUseCase,
+    BoxeadorFinder,
     UsuariosFacade
   ],
   exports: [
-    UsuariosPersistenceModule
+    UsuariosPersistenceModule,
+    BoxeadorFinder
   ]
 })
 export class UsuariosModule {}

@@ -1,13 +1,17 @@
 import { Module } from '@nestjs/common';
 
+import { UsuariosModule } from '../usuarios/usuarios.module';
+
 import { LesionesPersistenceModule } from './infrastructure/persistence/lesiones-persistence.module';
 import { LesionesController } from './infrastructure/presentation/controllers/lesiones.controller';
-import { RegistrarLesionUseCase } from './application/use-cases/registrar-lesion.use-case';
+
 import { LesionesFacade } from './application/facades/lesiones.facade';
+import { RegistrarLesionUseCase, ActualizarEstadoLesionUseCase, ConsultarLesionesUseCase } from './application/use-cases';
 
 
 @Module({
   imports: [
+    UsuariosModule,
     LesionesPersistenceModule
   ],
   controllers: [
@@ -15,6 +19,8 @@ import { LesionesFacade } from './application/facades/lesiones.facade';
   ],
   providers: [
     RegistrarLesionUseCase,
+    ActualizarEstadoLesionUseCase,
+    ConsultarLesionesUseCase,
     LesionesFacade
   ]
 })
