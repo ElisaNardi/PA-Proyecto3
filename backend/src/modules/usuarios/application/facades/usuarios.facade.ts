@@ -18,4 +18,5 @@ export class UsuariosFacade {
     async obtenerBoxeadores(idEntrenadorRuta: number, idEntrenadorAutenticado: number): Promise<BoxeadorVinculadoResponse[]> {
         return this.obtenerBoxeadoresDeEntrenador.execute(idEntrenadorRuta, idEntrenadorAutenticado);
     }
+    
 }

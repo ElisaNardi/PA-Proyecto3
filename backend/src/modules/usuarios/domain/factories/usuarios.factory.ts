@@ -1,14 +1,8 @@
 import { Medida } from "../../../../shared/domain/value-objects/medida.vo";
 
-import { CrearBoxeadorInput } from "../inputs/crear-boxeador.input";
-import { CrearEntrenadorInput } from "../inputs/crear-entrenador.input";
-import { ReconstruirBoxeadorInput } from "../inputs/reconstruir-boxeador.input";
-import { ReconstruirEntrenadorInput } from "../inputs/reconstruir-entrenador.input";
-
+import { CrearBoxeadorInput, CrearEntrenadorInput, ReconstruirBoxeadorInput, ReconstruirEntrenadorInput } from "../inputs";
 import { Email } from "../value-objects/email.vo";
-
-import { Boxeador } from "../entities/boxeador.entity";
-import { Entrenador } from "../entities/entrenador.entity";
+import { Boxeador, Entrenador } from "../entities";
 
 export class UsuariosFactory {
     static crearBoxeador(input: CrearBoxeadorInput): Boxeador {
