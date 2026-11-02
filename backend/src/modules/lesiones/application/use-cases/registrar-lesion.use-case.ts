@@ -25,7 +25,7 @@ export class RegistrarLesionUseCase {
 
         return this.uow.runInTransaction(async () => {
             const lesion = LesionesFactory.crear({
-                idBoxeador: idBoxeadorRuta,
+                boxeadorId: idBoxeadorRuta,
                 zona: dto.zona,
                 descripcion: dto.descripcion,
                 gravedad: dto.gravedad,
