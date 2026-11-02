@@ -36,4 +36,21 @@ export class LesionesRepository implements ILesionesRepository {
                                                 .getMany();
         return LesionesOrmMapper.toDomain(lesion, cambios);
     }
+
+    async findByBoxeadorId(boxeadorId: number): Promise<Lesion[]> {
+        const lesiones = await this.gestor.actual.createQueryBuilder(LesionOrmEntity, 'lesiones')
+                                                 .where('lesiones.boxeadorId = :boxeadorId',  { boxeadorId })
+                                                 .getMany();
+        if (lesiones.length === 0) return [];
+
+        const lesionesIds = lesiones.map(l => l.id);
+        const cambios = await this.gestor.actual.createQueryBuilder(CambioEstadoLesionOrmEntity, 'cambios')
+                                                .where('cambios.lesionId IN (:...lesionesIds)', { lesionesIds })
+                                                .orderBy('cambios.fecha', 'ASC')
+                                                .getMany();
+        return lesiones.map(lesion => {
+            const cambiosDeLesion = cambios.filter(c => c.lesionId === lesion.id);
+            return LesionesOrmMapper.toDomain(lesion, cambiosDeLesion);
+        });
+    }
 }
