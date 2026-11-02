@@ -1,8 +1,10 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
 
-import { CambioEstadoLesionOrmEntity } from "./entities/cambio-estado-lesion.orm-entity";
-import { LesionOrmEntity } from "./entities/lesion.orm-entity";
+import { LESIONES_REPOSITORY_TOKEN } from "../../domain/ports/lesiones-repository.port";
+import { LesionesRepository } from "./repositories/lesiones-repository.adapter";
+
+import { LesionOrmEntity, CambioEstadoLesionOrmEntity } from "./entities";
 
 @Module({
     imports: [
@@ -12,11 +14,14 @@ import { LesionOrmEntity } from "./entities/lesion.orm-entity";
         ])
     ],
     providers: [
-        // acá ponemos todos los repos y tokens, como { provide: LESIONES_REPOSITORY_TOKEN, useClass: LesionesRepository }
+        {
+            provide: LESIONES_REPOSITORY_TOKEN,
+            useClass: LesionesRepository
+        }
     ],
     exports: [
         TypeOrmModule,
-        // acá los tokens, como LESIONES_REPOSITORY_TOKEN
+        LESIONES_REPOSITORY_TOKEN
     ]
 })
 export class LesionesPersistenceModule {}

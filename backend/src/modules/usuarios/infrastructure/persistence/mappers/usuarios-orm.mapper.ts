@@ -1,11 +1,7 @@
-import { Usuario } from "../../../domain/entities/usuario.entity";
-import { Boxeador } from "../../../domain/entities/boxeador.entity";
-import { Entrenador } from "../../../domain/entities/entrenador.entity";
+import { Usuario, Boxeador, Entrenador } from "../../../domain/entities";
 import { UsuariosFactory } from "../../../domain/factories/usuarios.factory";
 
-import { UsuarioOrmEntity } from "../entities/usuario.orm-entity";
-import { BoxeadorOrmEntity } from "../entities/boxeador.orm-entity";
-import { EntrenadorOrmEntity } from "../entities/entrenador.orm-entity";
+import { UsuarioOrmEntity, BoxeadorOrmEntity, EntrenadorOrmEntity } from "../entities";
 
 export class UsuarioOrmMapper {
     static toOrmUsuario(usuario: Usuario): UsuarioOrmEntity {
