@@ -22,7 +22,8 @@ import { BoxeadorFinder } from './application/services/boxeador.finder';
     UsuariosFacade
   ],
   exports: [
-    UsuariosPersistenceModule
+    UsuariosPersistenceModule,
+    BoxeadorFinder
   ]
 })
 export class UsuariosModule {}
