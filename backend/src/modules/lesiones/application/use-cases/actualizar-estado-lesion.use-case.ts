@@ -35,7 +35,7 @@ export class ActualizarEstadoLesionUseCase {
 
         return this.uow.runInTransaction(async () => {
             const lesionGuardada = await this.repo.save(lesion);
-            return LesionesResponseMapper.toActualizarEstadoResponse(lesion);
+            return LesionesResponseMapper.toActualizarEstadoResponse(lesionGuardada);
         });
     }
 }
