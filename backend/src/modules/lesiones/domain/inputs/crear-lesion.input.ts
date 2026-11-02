@@ -1,7 +1,7 @@
 import { Gravedad } from "../enums/gravedad.enum";
 
 export interface CrearLesionInput {
-    idBoxeador: number;
+    boxeadorId: number;
     zona: string;
     descripcion: string;
     gravedad: Gravedad;

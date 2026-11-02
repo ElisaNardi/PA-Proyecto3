@@ -7,7 +7,7 @@ export class LesionesFactory {
         const cambioEstado = CambioEstadoLesion.crear({ estadoNuevo: EstadoLesion.ACTIVA });
         return new Lesion(
             null,
-            input.idBoxeador,
+            input.boxeadorId,
             input.descripcion,
             input.zona,
             input.gravedad,
