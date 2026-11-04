@@ -32,7 +32,7 @@ src/
 ├── app/            App.tsx, router.tsx (todas las rutas), providers.tsx (QueryClient, Auth, Toast)
 ├── core/
 │   ├── api/        instancia de axios, interceptores y getApiErrorMessage()
-│   ├── auth/       AuthProvider, useAuth, RequireRole, persistencia de la sesión
+│   ├── auth/       AuthProvider, useAuth, RequireRole, RedirigirSiHaySesion, persistencia de la sesión
 │   └── types/      enums del backend (Rol, Sexo, CategoriaPeso…) y tipos compartidos
 ├── features/       una carpeta por épica:
 │   └── <feature>/  landing, auth, vinculos, entrenamientos, sugerencias,
@@ -43,7 +43,7 @@ src/
 ├── shared/
 │   ├── ui/         Button, Card, Tag, Bar, Table, Field, Empty, ViewHeader, Toast, icons…
 │   ├── layout/     AppShell, Sidebar, BottomTabs, navegación por rol, 404
-│   └── utils/      fechas, IMC, texto (etiquetaEnum, iniciales)
+│   └── utils/      fechas, texto (etiquetaEnum, iniciales)
 ├── styles/         tokens.css (variables :root del prototipo) y global.css (resto de clases)
 ├── assets/         imágenes del prototipo
 └── main.tsx
@@ -51,7 +51,11 @@ src/
 
 ### Reglas
 
-- **Dependencias entre carpetas:** una feature puede importar de `core/` y `shared/`, pero no de otra feature. Si dos features necesitan lo mismo, va a `shared/` o a `core/`.
+- **Dependencias entre carpetas:**
+  - Una feature puede importar de `core/` y `shared/`.
+  - De otra feature, solo a través de su `index.ts`, que declara lo público. Por ejemplo: `import { ListaLesiones } from '../../lesiones'`. Nunca se importan sus archivos internos (`../../lesiones/components/...`).
+  - Si algo lo necesitan varias features y no pertenece a ninguna, va a `shared/` o a `core/`.
+  - Hoy `lesiones` exporta `ListaLesiones`, `AdvertenciaLesionesActivas` y `useLesionesActivas`. Los usan `vinculos` (perfil del boxeador) y, más adelante, `entrenamientos` al asignar.
 - **Estilos:** usá las clases del prototipo (`card`, `btn secondary sm`, `tag ok`, `field-row`…). No las renombres. Los colores y tipografías salen de las variables de `tokens.css`.
 - **Fechas:**
   - La API manda fechas como `YYYY-MM-DD`. Mostralas con `formatearFecha()`, nunca con `new Date(fecha)`: en Argentina eso corre la fecha un día para atrás.
@@ -65,10 +69,11 @@ src/
 
 - **Datos de la sesión:** se guardan en `localStorage` (clave `evobox.sesion`) con la forma de la respuesta del login: `{ accessToken, usuario: { idUsuario, nombre, rol } }`.
 - **`useAuth()`:** expone `usuario`, `isAuthenticated`, `iniciarSesion(respuesta)` y `cerrarSesion()`.
-  - Para salir desde una ruta protegida, usá `cerrarSesion({ redirigirA: '/' })`. Así primero se navega y después se borra la sesión.
+  - Para salir desde una ruta protegida, usá `cerrarSesion({ redirigirA: '/' })`. Así primero se navega y después se borra la sesión. Mientras tanto, `cerrandoSesion` vale `true`.
 - **Token:** el cliente de axios le agrega `Authorization: Bearer <token>` a cada pedido.
 - **Sesión vencida:** si el backend responde 401 con sesión iniciada, se cierra la sesión y se vuelve a `/login`. La excepción es `POST /auth/login`, donde un 401 significa credenciales inválidas.
 - **`RequireRole`:** sin sesión, manda a `/login`. Con otro rol, manda al inicio de ese rol (`/boxeador/entrenamiento` o `/entrenador/boxeadores`).
+- **`RedirigirSiHaySesion`:** envuelve `/`, `/login` y `/registro`. Con sesión iniciada, manda al inicio del rol, salvo durante "Salir" (`cerrandoSesion`). Por eso las páginas públicas no tienen que chequear la sesión.
 
 ## Sumar una pantalla a una feature
 

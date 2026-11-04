@@ -1,4 +1,4 @@
-import { Navigate, Outlet, useLocation } from 'react-router';
+import { Navigate, Outlet } from 'react-router';
 
 import type { Rol } from '../types';
 
@@ -12,10 +12,9 @@ interface RequireRoleProps {
 /** Protege las rutas hijas: sin sesión va a /login; con otro rol, a su propio inicio. */
 export function RequireRole({ rol }: RequireRoleProps) {
   const { usuario } = useAuth();
-  const location = useLocation();
 
   if (!usuario) {
-    return <Navigate to="/login" replace state={{ desde: location.pathname }} />;
+    return <Navigate to="/login" replace />;
   }
   if (usuario.rol !== rol) {
     return <Navigate to={inicioDeRol(usuario.rol)} replace />;

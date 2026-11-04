@@ -208,7 +208,7 @@ main{min-width:0;padding:30px clamp(18px,4vw,46px) 90px}
   aside nav{display:none}
   aside .who{margin-top:0;padding-top:0;border-top:0;margin-left:auto}
   aside .who .rl{display:none}
-  main{padding-top:84px;padding-bottom:96px}
+  main{padding-top:112px;padding-bottom:96px}
   .bottom-tabs{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--surface);
     border-top:1px solid var(--line-soft);padding:6px max(10px,env(safe-area-inset-left,0px)) max(6px,env(safe-area-inset-bottom,0px));gap:2px}
   .bottom-tabs button{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:0;

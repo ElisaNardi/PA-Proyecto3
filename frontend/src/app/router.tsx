@@ -1,7 +1,7 @@
 import type { ComponentType } from 'react';
 import { createBrowserRouter, Navigate } from 'react-router';
 
-import { RequireRole } from '../core/auth';
+import { RedirigirSiHaySesion, RequireRole } from '../core/auth';
 import { Rol } from '../core/types';
 import { AppShell } from '../shared/layout';
 import { Cargando } from '../shared/ui';
@@ -18,9 +18,14 @@ export const router = createBrowserRouter([
     element: <RootLayout />,
     hydrateFallbackElement: <Cargando />,
     children: [
-      { path: '/', lazy: pagina(() => import('../features/landing/pages/LandingPage')) },
-      { path: '/login', lazy: pagina(() => import('../features/auth/pages/LoginPage')) },
-      { path: '/registro', lazy: pagina(() => import('../features/auth/pages/RegistroPage')) },
+      {
+        element: <RedirigirSiHaySesion />,
+        children: [
+          { path: '/', lazy: pagina(() => import('../features/landing/pages/LandingPage')) },
+          { path: '/login', lazy: pagina(() => import('../features/auth/pages/LoginPage')) },
+          { path: '/registro', lazy: pagina(() => import('../features/auth/pages/RegistroPage')) },
+        ],
+      },
       {
         path: '/boxeador',
         element: <RequireRole rol={Rol.BOXEADOR} />,

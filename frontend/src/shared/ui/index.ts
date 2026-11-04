@@ -3,6 +3,7 @@ export * from './Button';
 export * from './Card';
 export * from './Cargando';
 export * from './Empty';
+export * from './ErrorFormulario';
 export * from './Field';
 export * from './icons';
 export * from './Table';

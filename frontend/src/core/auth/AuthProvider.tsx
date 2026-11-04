@@ -14,6 +14,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const location = useLocation();
   const queryClient = useQueryClient();
   const cierrePendiente = useRef(false);
+  const [cerrandoSesion, setCerrandoSesion] = useState(false);
 
   // El interceptor lee el token de acá para no esperar un re-render.
   const tokenRef = useRef<string | null>(sesion?.accessToken ?? null);
@@ -34,6 +35,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const limpiarSesion = useCallback(() => {
     cierrePendiente.current = false;
+    setCerrandoSesion(false);
     tokenRef.current = null;
     borrarSesion();
     setSesion(null);
@@ -47,6 +49,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         return;
       }
       cierrePendiente.current = true;
+      setCerrandoSesion(true);
       navigate(opciones.redirigirA, { replace: true });
     },
     [limpiarSesion, navigate, location.pathname],
@@ -73,10 +76,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     () => ({
       usuario: sesion?.usuario ?? null,
       isAuthenticated: sesion !== null,
+      cerrandoSesion,
       iniciarSesion,
       cerrarSesion,
     }),
-    [sesion, iniciarSesion, cerrarSesion],
+    [sesion, cerrandoSesion, iniciarSesion, cerrarSesion],
   );
 
   return <AuthContext.Provider value={valor}>{children}</AuthContext.Provider>;

@@ -5,6 +5,11 @@ import type { Sesion, UsuarioSesion } from '../types';
 export interface AuthContextValue {
   usuario: UsuarioSesion | null;
   isAuthenticated: boolean;
+  /**
+   * `true` mientras corre `cerrarSesion({ redirigirA })`: la sesión todavía existe pero
+   * ya se está saliendo. Los guards no deben redirigir por sesión iniciada en ese lapso.
+   */
+  cerrandoSesion: boolean;
   iniciarSesion: (respuesta: Sesion) => void;
   /**
    * Borra la sesión. Con `redirigirA`, primero navega ahí y borra la sesión recién
