@@ -1,0 +1,16 @@
+:root{
+  --bg:#0a0a0b; --surface:#131417; --surface-2:#1b1d22; --raised:#202329;
+  --line:#2a2d33; --line-soft:#1f2126;
+  --ink:#f3f3f2; --ink-dim:#c7c8cc; --muted:#898d96; --muted-2:#5d6169;
+  --accent:#e2342f; --accent-2:#ff5048; --accent-dim:#7a1c1c;
+  --ok:#3fb37f; --ok-dim:#163528;
+  --warn:#e8a93a; --warn-dim:#3a2a10;
+  --danger:#e2342f;
+  --radius:14px; --radius-sm:9px; --radius-pill:999px;
+  --shadow:0 8px 28px -8px rgba(0,0,0,.55);
+  --f-display:'Archivo Black','Arial Black',Impact,sans-serif;
+  --f-cond:'Bebas Neue',var(--f-display);
+  --f-body:'Inter',system-ui,-apple-system,sans-serif;
+  --f-mono:'JetBrains Mono',ui-monospace,monospace;
+  color-scheme:dark;
+}
