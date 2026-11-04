@@ -1,5 +1,4 @@
-import { EstadoLesion } from "../../domain/enums/estado-lesion.enum";
-import { Gravedad } from "../../domain/enums/gravedad.enum";
+import { EstadoLesion, Gravedad } from "../../domain/enums";
 
 export interface LesionResponse {
     idLesion: number;

@@ -1,8 +1,8 @@
 import { Injectable } from "@nestjs/common";
 
-import { Rol } from "../../../../shared/domain/enums/rol.enum";
+import { Rol } from "../../../../shared/domain/enums";
 
-import { EstadoLesion } from "../../domain/enums/estado-lesion.enum";
+import { EstadoLesion } from "../../domain/enums";
 
 import { RegistrarLesionUseCase, ActualizarEstadoLesionUseCase, ConsultarLesionesUseCase } from "../use-cases";
 import { LesionResponse, ActualizarEstadoLesionResponse } from "../responses";

@@ -1,10 +1,10 @@
 import { Inject, Injectable } from "@nestjs/common";
 
-import { type IUsuariosRepository, USUARIOS_REPOSITORY_TOKEN } from "../../domain/ports/usuarios-repository.port";
+import { type IUsuariosRepository, USUARIOS_REPOSITORY_TOKEN } from "../../domain/ports";
 
 import { BoxeadorVinculadoResponse } from "../responses";
-import { UsuariosResponseMapper } from "../mappers/usuarios-response.mapper";
-import { AutorizacionValidator } from "../services/autorizacion.validator";
+import { UsuariosResponseMapper } from "../mappers";
+import { AutorizacionValidator } from "../services";
 
 @Injectable()
 export class ObtenerBoxeadoresDeEntrenadorUseCase {

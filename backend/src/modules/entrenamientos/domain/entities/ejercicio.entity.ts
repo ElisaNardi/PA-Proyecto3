@@ -1,8 +1,8 @@
-import { ValorNegativoException } from "../../../../shared/domain/exceptions/valor-negativo.exception";
-import { Medida } from "../../../../shared/domain/value-objects/medida.vo";
+import { ValorNegativoException } from "../../../../shared/domain/exceptions";
+import { Medida } from "../../../../shared/domain/value-objects";
 
-import { CumplimientoInvalidoException } from "../exceptions/cumplimiento-invalido.exception";
-import { CompletarEjercicioInput } from "../inputs/completar-ejercicio.input";
+import { CumplimientoInvalidoException } from "../exceptions";
+import { CompletarEjercicioInput } from "../inputs";
 
 export class Ejercicio {
     constructor(

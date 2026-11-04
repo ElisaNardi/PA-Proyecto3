@@ -1,4 +1,5 @@
-import { EstadoLesion } from "../../domain/enums/estado-lesion.enum";
+import { EstadoLesion } from "../../domain/enums";
+
 import { CambioEstadoResponse } from "./cambio-estado.response";
 
 export interface ActualizarEstadoLesionResponse {

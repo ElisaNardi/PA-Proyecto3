@@ -1,11 +1,7 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
 
-import { EjercicioOrmEntity } from "./entities/ejercicio.orm-entity";
-import { EntrenamientoOrmEntity } from "./entities/entrenamiento.orm-entity";
-import { ObjetivoOrmEntity } from "./entities/objetivo.orm-entity";
-import { RutinaOrmEntity } from "./entities/rutina.orm-entity";
-import { SugerenciaOrmEntity } from "./entities/sugerencia.orm-entity";
+import { EjercicioOrmEntity, EntrenamientoOrmEntity, ObjetivoOrmEntity, RutinaOrmEntity, SugerenciaOrmEntity } from "./entities";
 
 @Module({
     imports: [

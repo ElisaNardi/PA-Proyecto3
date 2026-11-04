@@ -1,13 +1,13 @@
 import { Body, Controller, Get, Param, ParseIntPipe, Patch, Post, Query, UseGuards } from "@nestjs/common";
 
-import { type JwtPayload } from "../../../../../shared/infrastructure/security/interfaces/jwt-payload.interface";
+import { type JwtPayload } from "../../../../../shared/infrastructure/security/interfaces";
 import { JwtAuthGuard, RolesGuard } from "../../../../../shared/infrastructure/security/guards";
 import { Roles, UsuarioAutenticado } from "../../../../../shared/infrastructure/security/decorators";
-import { Rol } from "../../../../../shared/domain/enums/rol.enum";
+import { Rol } from "../../../../../shared/domain/enums";
 
 import { RegistrarLesionDto, ActualizarEstadoLesionDto, ConsultarLesionesQueryDto } from "../../../application/dtos";
 import { LesionResponse, ActualizarEstadoLesionResponse } from "../../../application/responses";
-import { LesionesFacade } from "../../../application/facades/lesiones.facade";
+import { LesionesFacade } from "../../../application/facades";
 
 @Controller()
 export class LesionesController {

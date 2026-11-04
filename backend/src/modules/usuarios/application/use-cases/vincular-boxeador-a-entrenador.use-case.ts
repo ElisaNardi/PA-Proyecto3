@@ -1,16 +1,15 @@
 import { Inject, Injectable } from "@nestjs/common";
 
-import { type IUnitOfWork, UNIT_OF_WORK_TOKEN } from "../../../../shared/application/unit-of-work/unit-of-work.port";
+import { type IUnitOfWork, UNIT_OF_WORK_TOKEN } from "../../../../shared/application/unit-of-work";
 
-import { type IUsuariosRepository, USUARIOS_REPOSITORY_TOKEN } from "../../domain/ports/usuarios-repository.port";
+import { type IUsuariosRepository, USUARIOS_REPOSITORY_TOKEN } from "../../domain/ports";
 
-import { VincularBoxeadorDto } from "../dtos/vincular-boxeador.dto";
-import { VincularBoxeadorResponse } from "../responses/vincular-boxeador.response";
-import { UsuariosResponseMapper } from "../mappers/usuarios-response.mapper";
+import { VincularBoxeadorDto } from "../dtos";
+import { VincularBoxeadorResponse } from "../responses";
+import { UsuariosResponseMapper } from "../mappers";
 
-import { BoxeadorYaVinculadoException } from "../exceptions/boxeador-ya-vinculado.exception";
-import { AutorizacionValidator } from "../services/autorizacion.validator";
-import { BoxeadorFinder } from "../services/boxeador.finder";
+import { BoxeadorYaVinculadoException } from "../exceptions";
+import { AutorizacionValidator, BoxeadorFinder } from "../services";
 
 @Injectable()
 export class VincularBoxeadorAEntrenadorUseCase {

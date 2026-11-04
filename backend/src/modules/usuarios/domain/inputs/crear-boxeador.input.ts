@@ -1,4 +1,4 @@
-import { Sexo } from "../enums/sexo.enum";
+import { Sexo } from "../enums";
 
 export interface CrearBoxeadorInput {
     nombre: string;

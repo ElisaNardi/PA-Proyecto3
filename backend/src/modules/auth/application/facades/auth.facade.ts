@@ -1,13 +1,10 @@
 import { Injectable } from "@nestjs/common";
 
-import { RegistrarUsuarioDto } from "../dtos/registrar-usuario.dto";
-import { AutenticarUsuarioDto } from "../dtos/autenticar-usuario.dto";
+import { RegistrarUsuarioDto, AutenticarUsuarioDto } from "../dtos";
 
-import { AutenticarUsuarioResponse } from "../responses/autenticar-usuario.response";
-import { UsuarioResponse } from "../responses/usuario.response";
+import { UsuarioResponse, AutenticarUsuarioResponse } from "../responses";
 
-import { RegistrarUsuarioUseCase } from "../use-cases/registrar-usuario.use-case";
-import { AutenticarUsuarioUseCase } from "../use-cases/autenticar-usuario.use-case";
+import { RegistrarUsuarioUseCase, AutenticarUsuarioUseCase } from "../use-cases";
 
 @Injectable()
 export class AuthFacade {

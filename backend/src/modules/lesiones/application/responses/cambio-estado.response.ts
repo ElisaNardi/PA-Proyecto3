@@ -1,4 +1,4 @@
-import { EstadoLesion } from "../../domain/enums/estado-lesion.enum";
+import { EstadoLesion } from "../../domain/enums";
 
 export interface CambioEstadoResponse {
     idCambioEstadoLesion: number;

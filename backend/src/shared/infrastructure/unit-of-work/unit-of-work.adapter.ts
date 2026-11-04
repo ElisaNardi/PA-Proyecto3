@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { IUnitOfWork } from "../../application/unit-of-work/unit-of-work.port";
+import { IUnitOfWork } from "../../application/unit-of-work";
 import { GestorEntityManager } from "./gestor-entity-manager";
 
 @Injectable()

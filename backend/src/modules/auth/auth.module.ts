@@ -2,13 +2,12 @@ import { Module } from '@nestjs/common';
 
 import { UsuariosPersistenceModule } from '../usuarios/infrastructure/persistence/usuarios-persistence.module';
 
-import { HASHER_TOKEN } from './application/ports/hasher.port';
-import { AuthFacade } from './application/facades/auth.facade';
-import { RegistrarUsuarioUseCase } from './application/use-cases/registrar-usuario.use-case';
+import { HASHER_TOKEN } from './application/ports';
+import { AuthFacade } from './application/facades';
+import { AutenticarUsuarioUseCase, RegistrarUsuarioUseCase } from './application/use-cases';
 
-import { AuthController } from './infrastructure/presentation/auth.controller';
-import { BcryptHasher } from './infrastructure/adapters/bcrypt-hasher.adapter';
-import { AutenticarUsuarioUseCase } from './application/use-cases/autenticar-usuario.use-case';
+import { AuthController } from './infrastructure/presentation';
+import { BcryptHasher } from './infrastructure/adapters';
 
 @Module({
   imports: [

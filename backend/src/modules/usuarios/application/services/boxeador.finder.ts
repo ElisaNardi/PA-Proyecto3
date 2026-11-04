@@ -1,9 +1,9 @@
 import { Inject, Injectable } from "@nestjs/common";
 
-import { type IUsuariosRepository, USUARIOS_REPOSITORY_TOKEN } from "../../domain/ports/usuarios-repository.port";
+import { type IUsuariosRepository, USUARIOS_REPOSITORY_TOKEN } from "../../domain/ports";
 import { Boxeador } from "../../domain/entities";
 
-import { BoxeadorNoEncontradoException } from "../exceptions/boxeador-no-encontrado.exception";
+import { BoxeadorNoEncontradoException } from "../exceptions";
 
 @Injectable()
 export class BoxeadorFinder {

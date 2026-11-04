@@ -1,14 +1,14 @@
 import { ForbiddenException, Inject, Injectable } from "@nestjs/common";
 
-import { Rol } from "../../../../shared/domain/enums/rol.enum";
+import { Rol } from "../../../../shared/domain/enums";
 
-import { BoxeadorFinder } from "../../../usuarios/application/services/boxeador.finder";
+import { BoxeadorFinder } from "../../../usuarios/application/services";
 
-import { type ILesionesRepository, LESIONES_REPOSITORY_TOKEN } from "../../domain/ports/lesiones-repository.port";
-import { EstadoLesion } from "../../domain/enums/estado-lesion.enum";
+import { type ILesionesRepository, LESIONES_REPOSITORY_TOKEN } from "../../domain/ports";
+import { EstadoLesion } from "../../domain/enums";
 
 import { LesionResponse } from "../responses";
-import { LesionesResponseMapper } from "../mappers/lesiones-response.mapper";
+import { LesionesResponseMapper } from "../mappers";
 
 @Injectable()
 export class ConsultarLesionesUseCase {

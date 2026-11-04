@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 
 import { UsuariosPersistenceModule } from './infrastructure/persistence/usuarios-persistence.module';
-import { UsuariosController } from './infrastructure/presentation/controllers/usuarios.controller';
+import { UsuariosController } from './infrastructure/presentation/controllers';
 
 import { VincularBoxeadorAEntrenadorUseCase, ObtenerBoxeadoresDeEntrenadorUseCase, ObtenerPerfilBoxeadorUseCase } from './application/use-cases';
-import { UsuariosFacade } from './application/facades/usuarios.facade';
-import { BoxeadorFinder } from './application/services/boxeador.finder';
+import { UsuariosFacade } from './application/facades';
+import { BoxeadorFinder } from './application/services';
 
 @Module({
   imports: [

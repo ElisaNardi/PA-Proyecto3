@@ -1,5 +1,4 @@
-import { AppErrorCode } from "../../exceptions/app-error-code.enum";
-import { AppException } from "../../exceptions/app-exception";
+import { AppErrorCode, AppException } from "../../exceptions";
 
 export class ApplicationException extends AppException {
     constructor(

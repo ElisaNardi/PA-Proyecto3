@@ -1,13 +1,13 @@
 import { ForbiddenException, Inject, Injectable } from "@nestjs/common";
 
-import { type IUnitOfWork, UNIT_OF_WORK_TOKEN } from "../../../../shared/application/unit-of-work/unit-of-work.port";
+import { type IUnitOfWork, UNIT_OF_WORK_TOKEN } from "../../../../shared/application/unit-of-work";
 
-import { type ILesionesRepository, LESIONES_REPOSITORY_TOKEN } from "../../domain/ports/lesiones-repository.port";
-import { LesionesFactory } from "../../domain/factories/lesiones.factory";
+import { type ILesionesRepository, LESIONES_REPOSITORY_TOKEN } from "../../domain/ports";
+import { LesionesFactory } from "../../domain/factories";
 
-import { RegistrarLesionDto } from "../dtos/registrar-lesion.dto";
-import { LesionResponse } from "../responses/lesion.response";
-import { LesionesResponseMapper } from "../mappers/lesiones-response.mapper";
+import { RegistrarLesionDto } from "../dtos";
+import { LesionResponse } from "../responses";
+import { LesionesResponseMapper } from "../mappers";
 
 @Injectable()
 export class RegistrarLesionUseCase {

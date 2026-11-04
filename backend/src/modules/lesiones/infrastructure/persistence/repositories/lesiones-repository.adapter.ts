@@ -1,11 +1,11 @@
 import { Injectable } from "@nestjs/common";
 
-import { GestorEntityManager } from "../../../../../shared/infrastructure/unit-of-work/gestor-entity-manager";
+import { GestorEntityManager } from "../../../../../shared/infrastructure/unit-of-work";
 
-import { ILesionesRepository } from "../../../domain/ports/lesiones-repository.port";
+import { ILesionesRepository } from "../../../domain/ports";
 import { Lesion } from "../../../domain/entities";
 
-import { LesionesOrmMapper } from "../mappers/lesiones-orm.mapper";
+import { LesionesOrmMapper } from "../mappers";
 import { CambioEstadoLesionOrmEntity, LesionOrmEntity } from "../entities";
 
 @Injectable()

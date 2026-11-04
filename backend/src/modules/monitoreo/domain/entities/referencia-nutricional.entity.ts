@@ -1,4 +1,4 @@
-import { Medida } from "../../../../shared/domain/value-objects/medida.vo";
+import { Medida } from "../../../../shared/domain/value-objects";
 
 export class ReferenciaNutricional {
     constructor(

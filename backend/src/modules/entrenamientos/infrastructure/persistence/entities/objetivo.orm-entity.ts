@@ -1,6 +1,8 @@
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+
+import { DecimalColumn } from '../../../../../shared/infrastructure/persistence/decorators';
+
 import { EntrenamientoOrmEntity } from './entrenamiento.orm-entity';
-import { DecimalColumn } from '../../../../../shared/infrastructure/persistence/decorators/decimal-column.decorator';
 
 @Entity('objetivos')
 export class ObjetivoOrmEntity {

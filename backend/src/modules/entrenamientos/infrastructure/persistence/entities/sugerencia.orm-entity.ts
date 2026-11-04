@@ -1,7 +1,8 @@
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { EntrenadorOrmEntity } from '../../../../usuarios/infrastructure/persistence/entities/entrenador.orm-entity';
-import { BoxeadorOrmEntity } from '../../../../usuarios/infrastructure/persistence/entities/boxeador.orm-entity';
-import { EstadoSugerencia } from '../../../domain/enums/estado-sugerencia.enum';
+
+import { EntrenadorOrmEntity, BoxeadorOrmEntity } from '../../../../usuarios/infrastructure/persistence/entities';
+
+import { EstadoSugerencia } from '../../../domain/enums';
 
 @Entity('sugerencias')
 export class SugerenciaOrmEntity {

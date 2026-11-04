@@ -1,8 +1,7 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { MedicionFisicaOrmEntity } from "./entities/medicion-fisica.orm-entity";
-import { ReferenciaNutricionalOrmEntity } from "./entities/referencia-nutricional.orm-entity";
-import { RegistroConsumoOrmEntity } from "./entities/registro-consumo.orm-entity";
+
+import { MedicionFisicaOrmEntity, ReferenciaNutricionalOrmEntity, RegistroConsumoOrmEntity } from "./entities";
 
 @Module({
     imports: [

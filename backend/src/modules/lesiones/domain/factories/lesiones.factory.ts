@@ -1,6 +1,6 @@
-import { CambioEstadoLesion, Lesion } from "../entities";
-import { EstadoLesion } from "../enums/estado-lesion.enum";
+import { EstadoLesion } from "../enums";
 import { CrearLesionInput, ReconstruirLesionInput } from "../inputs";
+import { CambioEstadoLesion, Lesion } from "../entities";
 
 export class LesionesFactory {
     static crear(input: CrearLesionInput): Lesion {

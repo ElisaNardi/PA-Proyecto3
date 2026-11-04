@@ -1,15 +1,13 @@
 import { Injectable } from "@nestjs/common";
 
-import { GestorEntityManager } from "../../../../../shared/infrastructure/unit-of-work/gestor-entity-manager";
-import { Rol } from "../../../../../shared/domain/enums/rol.enum";
+import { GestorEntityManager } from "../../../../../shared/infrastructure/unit-of-work";
+import { Rol } from "../../../../../shared/domain/enums";
 
-import { Usuario } from "../../../domain/entities/usuario.entity";
-import { Boxeador } from "../../../domain/entities/boxeador.entity";
-import { IUsuariosRepository } from "../../../domain/ports/usuarios-repository.port";
+import { Usuario, Boxeador } from "../../../domain/entities";
+import { IUsuariosRepository } from "../../../domain/ports";
 
-import { UsuarioOrmMapper } from "../mappers/usuarios-orm.mapper";
-import { UsuarioOrmEntity } from "../entities/usuario.orm-entity";
-import { BoxeadorOrmEntity } from "../entities/boxeador.orm-entity";
+import { UsuarioOrmEntity, BoxeadorOrmEntity } from "../entities";
+import { UsuarioOrmMapper } from "../mappers";
 
 @Injectable()
 export class UsuariosRepository implements IUsuariosRepository {

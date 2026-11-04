@@ -1,6 +1,6 @@
-import { CategoriaPeso } from "../../../../shared/domain/enums/categoria-peso.enum";
+import { CategoriaPeso } from "../../../../shared/domain/enums";
 
-import { Sexo } from "../../domain/enums/sexo.enum";
+import { Sexo } from "../../domain/enums";
 
 export interface PerfilBoxeadorResponse {
     idBoxeador: number;

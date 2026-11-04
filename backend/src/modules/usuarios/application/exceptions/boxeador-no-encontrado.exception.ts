@@ -1,5 +1,5 @@
-import { ApplicationException } from "../../../../shared/application/exceptions/application-exception";
-import { AppErrorCode } from "../../../../shared/exceptions/app-error-code.enum";
+import { ApplicationException } from "../../../../shared/application/exceptions";
+import { AppErrorCode } from "../../../../shared/exceptions";
 
 export class BoxeadorNoEncontradoException extends ApplicationException {
     constructor() {

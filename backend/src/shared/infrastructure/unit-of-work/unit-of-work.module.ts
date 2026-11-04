@@ -1,6 +1,6 @@
 import { Global, Module } from "@nestjs/common";
 import { GestorEntityManager } from "./gestor-entity-manager";
-import { UNIT_OF_WORK_TOKEN } from "../../application/unit-of-work/unit-of-work.port";
+import { UNIT_OF_WORK_TOKEN } from "../../application/unit-of-work";
 import { UnitOfWork } from "./unit-of-work.adapter";
 
 @Global()

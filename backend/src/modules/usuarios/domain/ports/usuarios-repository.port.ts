@@ -1,5 +1,4 @@
-import { Boxeador } from "../entities/boxeador.entity";
-import { Usuario } from "../entities/usuario.entity";
+import { Usuario, Boxeador } from "../entities";
 
 export const USUARIOS_REPOSITORY_TOKEN = Symbol('IUsuariosRepository');
 

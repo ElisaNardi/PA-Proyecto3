@@ -1,4 +1,4 @@
-import { EstadoLesion } from "../enums/estado-lesion.enum";
+import { EstadoLesion } from "../enums";
 
 export interface CrearCambioEstado {
     estadoNuevo: EstadoLesion;

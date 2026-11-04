@@ -1,4 +1,4 @@
-import { EstadoSugerencia } from "../enums/estado-sugerencia.enum";
+import { EstadoSugerencia } from "../enums";
 
 export class Sugerencia {
     constructor(

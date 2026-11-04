@@ -4,8 +4,8 @@ import { Request } from 'express';
 
 import { Rol } from '../../../domain/enums/rol.enum';
 
-import { ROLES_KEY } from '../decorators/roles.decorator';
-import { JwtPayload } from '../interfaces/jwt-payload.interface';
+import { ROLES_KEY } from '../decorators';
+import { JwtPayload } from '../interfaces';
 
 @Injectable()
 export class RolesGuard implements CanActivate {

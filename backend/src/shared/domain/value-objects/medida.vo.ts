@@ -1,4 +1,4 @@
-import { MedidaInvalidaException } from "../exceptions/medida-invalida.exception";
+import { MedidaInvalidaException } from "../exceptions";
 
 export class Medida {
     private constructor(

@@ -1,14 +1,14 @@
 import { ForbiddenException, Inject, Injectable } from "@nestjs/common";
 
-import { type IUnitOfWork, UNIT_OF_WORK_TOKEN } from "../../../../shared/application/unit-of-work/unit-of-work.port";
+import { type IUnitOfWork, UNIT_OF_WORK_TOKEN } from "../../../../shared/application/unit-of-work";
 
-import { type ILesionesRepository, LESIONES_REPOSITORY_TOKEN } from "../../domain/ports/lesiones-repository.port";
-import { EstadoLesion } from "../../domain/enums/estado-lesion.enum";
+import { type ILesionesRepository, LESIONES_REPOSITORY_TOKEN } from "../../domain/ports";
+import { EstadoLesion } from "../../domain/enums";
 
 import { ActualizarEstadoLesionDto } from "../dtos";
 import { ActualizarEstadoLesionResponse } from "../responses";
-import { LesionesResponseMapper } from "../mappers/lesiones-response.mapper";
-import { LesionNoEncontradaException } from "../exceptions/lesion-no-encontrada.exception";
+import { LesionesResponseMapper } from "../mappers";
+import { LesionNoEncontradaException } from "../exceptions";
 
 @Injectable()
 export class ActualizarEstadoLesionUseCase {

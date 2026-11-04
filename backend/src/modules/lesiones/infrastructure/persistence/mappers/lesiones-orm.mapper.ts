@@ -1,5 +1,5 @@
 import { Lesion } from "../../../domain/entities";
-import { LesionesFactory } from "../../../domain/factories/lesiones.factory";
+import { LesionesFactory } from "../../../domain/factories";
 
 import { LesionOrmEntity, CambioEstadoLesionOrmEntity } from "../entities";
 

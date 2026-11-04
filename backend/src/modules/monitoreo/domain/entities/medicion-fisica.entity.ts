@@ -1,7 +1,7 @@
 import { NotImplementedException } from "@nestjs/common";
 
-import { CategoriaPeso } from "../../../../shared/domain/enums/categoria-peso.enum";
-import { Medida } from "../../../../shared/domain/value-objects/medida.vo";
+import { CategoriaPeso } from "../../../../shared/domain/enums";
+import { Medida } from "../../../../shared/domain/value-objects";
 
 import { Perimetros } from "../value-objects/perimetros.vo";
 

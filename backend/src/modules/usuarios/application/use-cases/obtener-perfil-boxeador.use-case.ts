@@ -1,11 +1,11 @@
 import { ForbiddenException, Injectable } from "@nestjs/common";
 
-import { Rol } from "../../../../shared/domain/enums/rol.enum";
+import { Rol } from "../../../../shared/domain/enums";
 
 
 import { PerfilBoxeadorResponse } from "../responses";
-import { UsuariosResponseMapper } from "../mappers/usuarios-response.mapper";
-import { BoxeadorFinder } from "../services/boxeador.finder";
+import { UsuariosResponseMapper } from "../mappers";
+import { BoxeadorFinder } from "../services";
 
 @Injectable()
 export class ObtenerPerfilBoxeadorUseCase {

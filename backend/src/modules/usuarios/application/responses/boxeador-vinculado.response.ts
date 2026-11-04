@@ -1,4 +1,4 @@
-import { CategoriaPeso } from "../../../../shared/domain/enums/categoria-peso.enum";
+import { CategoriaPeso } from "../../../../shared/domain/enums";
 
 export interface BoxeadorVinculadoResponse {
     idBoxeador: number;

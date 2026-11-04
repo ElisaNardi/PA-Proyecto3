@@ -1,8 +1,8 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
 
-import { LESIONES_REPOSITORY_TOKEN } from "../../domain/ports/lesiones-repository.port";
-import { LesionesRepository } from "./repositories/lesiones-repository.adapter";
+import { LESIONES_REPOSITORY_TOKEN } from "../../domain/ports";
+import { LesionesRepository } from "./repositories";
 
 import { LesionOrmEntity, CambioEstadoLesionOrmEntity } from "./entities";
 

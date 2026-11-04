@@ -1,4 +1,5 @@
 import { Entity, JoinColumn, OneToOne, PrimaryColumn } from 'typeorm';
+
 import { UsuarioOrmEntity } from './usuario.orm-entity';
 
 @Entity('entrenadores')

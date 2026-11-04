@@ -1,6 +1,5 @@
-import { EstadoLesion } from "../enums/estado-lesion.enum";
-import { Gravedad } from "../enums/gravedad.enum";
-import { LesionYaEnEseEstadoException } from "../exceptions/lesion-ya-en-estado.exception";
+import { EstadoLesion, Gravedad } from "../enums";
+import { LesionYaEnEseEstadoException } from "../exceptions";
 
 import { CambioEstadoLesion } from "./cambio-estado-lesion.entity";
 

@@ -1,6 +1,6 @@
 import { IsString, IsNotEmpty, IsEnum, IsDateString } from "class-validator";
 
-import { Gravedad } from "../../domain/enums/gravedad.enum";
+import { Gravedad } from "../../domain/enums";
 
 export class RegistrarLesionDto {
     @IsString()

@@ -1,6 +1,5 @@
-import { EstadoLesion } from "../enums/estado-lesion.enum";
-import { CrearCambioEstado } from "../inputs/crear-cambio-estado.input";
-import { ReconstruirCambioEstado } from "../inputs/reconstruir-cambio-estado.input";
+import { EstadoLesion } from "../enums";
+import { CrearCambioEstado, ReconstruirCambioEstado } from "../inputs";
 
 export class CambioEstadoLesion {
     private constructor(

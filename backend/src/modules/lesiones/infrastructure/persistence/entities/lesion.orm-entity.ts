@@ -1,6 +1,8 @@
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { BoxeadorOrmEntity } from '../../../../usuarios/infrastructure/persistence/entities/boxeador.orm-entity';
-import { Gravedad } from '../../../domain/enums/gravedad.enum';
+
+import { BoxeadorOrmEntity } from '../../../../usuarios/infrastructure/persistence/entities';
+
+import { Gravedad } from '../../../domain/enums';
 
 @Entity('lesiones')
 export class LesionOrmEntity {

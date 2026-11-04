@@ -1,4 +1,4 @@
-import { AppErrorCode } from "../exceptions/app-error-code.enum";
+import { AppErrorCode } from "../exceptions";
 
 export const STATUS_BY_CODE: Record<AppErrorCode, number> = {
     [AppErrorCode.NOT_FOUND]: 404,

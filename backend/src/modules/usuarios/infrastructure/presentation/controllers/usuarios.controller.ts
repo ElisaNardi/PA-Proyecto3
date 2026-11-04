@@ -1,14 +1,14 @@
 import { Body, Controller, Get, Param, ParseIntPipe, Post, UseGuards } from "@nestjs/common";
 
-import { Rol } from "../../../../../shared/domain/enums/rol.enum";
+import { Rol } from "../../../../../shared/domain/enums";
 
-import { type JwtPayload } from "../../../../../shared/infrastructure/security/interfaces/jwt-payload.interface";
+import { type JwtPayload } from "../../../../../shared/infrastructure/security/interfaces";
 import { RolesGuard, JwtAuthGuard } from "../../../../../shared/infrastructure/security/guards";
 import { Roles, UsuarioAutenticado } from "../../../../../shared/infrastructure/security/decorators";
 
-import { VincularBoxeadorDto } from "../../../application/dtos/vincular-boxeador.dto";
-import { UsuariosFacade } from "../../../application/facades/usuarios.facade";
+import { VincularBoxeadorDto } from "../../../application/dtos";
 import { BoxeadorVinculadoResponse, PerfilBoxeadorResponse, VincularBoxeadorResponse } from "../../../application/responses";
+import { UsuariosFacade } from "../../../application/facades";
 
 @Controller()
 export class UsuariosController {

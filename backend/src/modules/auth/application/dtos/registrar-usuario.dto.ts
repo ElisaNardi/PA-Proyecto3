@@ -1,7 +1,8 @@
 import { IsEmail, IsEnum, IsNotEmpty, IsString, MinLength, ValidateIf } from 'class-validator';
 
-import { Rol } from '../../../../shared/domain/enums/rol.enum';
-import { Sexo } from '../../../usuarios/domain/enums/sexo.enum';
+import { Rol } from '../../../../shared/domain/enums';
+
+import { Sexo } from '../../../usuarios/domain/enums';
 
 export class RegistrarUsuarioDto {
     @IsString()

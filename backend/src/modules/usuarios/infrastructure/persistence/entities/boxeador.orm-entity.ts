@@ -1,9 +1,9 @@
 import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryColumn } from 'typeorm';
 
-import { DecimalColumn } from '../../../../../shared/infrastructure/persistence/decorators/decimal-column.decorator';
-import { CategoriaPeso } from '../../../../../shared/domain/enums/categoria-peso.enum';
+import { DecimalColumn } from '../../../../../shared/infrastructure/persistence/decorators';
+import { CategoriaPeso } from '../../../../../shared/domain/enums';
 
-import { Sexo } from '../../../domain/enums/sexo.enum';
+import { Sexo } from '../../../domain/enums';
 
 import { UsuarioOrmEntity } from './usuario.orm-entity';
 import { EntrenadorOrmEntity } from './entrenador.orm-entity';

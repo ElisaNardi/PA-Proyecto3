@@ -1,10 +1,10 @@
 import { NotImplementedException } from "@nestjs/common";
-import { CategoriaPeso } from "../../../../shared/domain/enums/categoria-peso.enum";
-import { Medida } from "../../../../shared/domain/value-objects/medida.vo";
 
-import { Rol } from "../../../../shared/domain/enums/rol.enum";
-import { Sexo } from "../enums/sexo.enum";
-import { Email } from "../value-objects/email.vo";
+import { CategoriaPeso, Rol } from "../../../../shared/domain/enums";
+import { Medida } from "../../../../shared/domain/value-objects";
+
+import { Sexo } from "../enums";
+import { Email } from "../value-objects";
 
 import { Usuario } from "./usuario.entity";
 

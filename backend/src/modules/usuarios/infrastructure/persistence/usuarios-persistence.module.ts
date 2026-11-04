@@ -1,12 +1,10 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
 
-import { USUARIOS_REPOSITORY_TOKEN } from "../../domain/ports/usuarios-repository.port";
+import { USUARIOS_REPOSITORY_TOKEN } from "../../domain/ports";
 
-import { UsuarioOrmEntity } from "./entities/usuario.orm-entity";
-import { BoxeadorOrmEntity } from "./entities/boxeador.orm-entity";
-import { EntrenadorOrmEntity } from "./entities/entrenador.orm-entity";
-import { UsuariosRepository } from "./repositories/usuarios-repository.adapter";
+import { UsuarioOrmEntity, BoxeadorOrmEntity, EntrenadorOrmEntity } from "./entities";
+import { UsuariosRepository } from "./repositories";
 
 @Module({
     imports: [

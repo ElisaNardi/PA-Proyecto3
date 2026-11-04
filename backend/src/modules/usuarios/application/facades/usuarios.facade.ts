@@ -1,8 +1,8 @@
 import { Injectable } from "@nestjs/common";
 
-import { Rol } from "../../../../shared/domain/enums/rol.enum";
+import { Rol } from "../../../../shared/domain/enums";
 
-import { VincularBoxeadorDto } from "../dtos/vincular-boxeador.dto";
+import { VincularBoxeadorDto } from "../dtos";
 import { VincularBoxeadorResponse, BoxeadorVinculadoResponse, PerfilBoxeadorResponse } from "../responses";
 import { VincularBoxeadorAEntrenadorUseCase, ObtenerBoxeadoresDeEntrenadorUseCase, ObtenerPerfilBoxeadorUseCase } from "../use-cases";
 

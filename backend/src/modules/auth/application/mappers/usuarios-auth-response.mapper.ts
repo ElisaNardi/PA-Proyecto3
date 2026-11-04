@@ -1,6 +1,6 @@
-import { Usuario } from "../../../usuarios/domain/entities/usuario.entity";
-import { AutenticarUsuarioResponse } from "../responses/autenticar-usuario.response";
-import { UsuarioResponse } from "../responses/usuario.response";
+import { Usuario } from "../../../usuarios/domain/entities";
+
+import { UsuarioResponse, AutenticarUsuarioResponse } from "../responses";
 
 export class UsuarioAuthResponseMapper {
     static toUsuarioResponse(usuario: Usuario): UsuarioResponse {

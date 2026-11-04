@@ -1,4 +1,5 @@
-import { AppErrorCode } from "../../exceptions/app-error-code.enum";
+import { AppErrorCode } from "../../exceptions";
+
 import { DomainException } from "./domain-exception";
 
 export class ValorNegativoException extends DomainException {

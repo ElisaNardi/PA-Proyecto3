@@ -1,5 +1,5 @@
-import { DomainException } from "../../../../shared/domain/exceptions/domain-exception";
-import { AppErrorCode } from "../../../../shared/exceptions/app-error-code.enum";
+import { DomainException } from "../../../../shared/domain/exceptions";
+import { AppErrorCode } from "../../../../shared/exceptions";
 
 export class CumplimientoInvalidoException extends DomainException {
     constructor() {

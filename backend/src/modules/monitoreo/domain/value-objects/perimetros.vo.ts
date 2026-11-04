@@ -1,6 +1,6 @@
-import { Medida } from "../../../../shared/domain/value-objects/medida.vo";
+import { Medida } from "../../../../shared/domain/value-objects";
 
-import { CrearPerimetrosInput } from "../inputs/crear-perimetros.input";
+import { CrearPerimetrosInput } from "../inputs";
 
 export class Perimetros {
     private constructor(

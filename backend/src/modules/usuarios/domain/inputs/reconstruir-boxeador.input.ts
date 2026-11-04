@@ -1,5 +1,6 @@
-import { CategoriaPeso } from "../../../../shared/domain/enums/categoria-peso.enum";
-import { Sexo } from "../enums/sexo.enum";
+import { CategoriaPeso } from "../../../../shared/domain/enums";
+
+import { Sexo } from "../enums";
 
 export interface ReconstruirBoxeadorInput {
     id: number;

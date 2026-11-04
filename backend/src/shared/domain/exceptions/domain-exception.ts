@@ -1,5 +1,5 @@
-import { AppErrorCode } from "../../exceptions/app-error-code.enum";
-import { AppException } from "../../exceptions/app-exception";
+import { AppErrorCode } from "../../exceptions";
+import { AppException } from "../../exceptions";
 
 export class DomainException extends AppException {
     constructor(

@@ -1,6 +1,6 @@
 import { IsEnum } from "class-validator";
 
-import { EstadoLesion } from "../../domain/enums/estado-lesion.enum";
+import { EstadoLesion } from "../../domain/enums";
 
 export class ActualizarEstadoLesionDto {
     @IsEnum(EstadoLesion)

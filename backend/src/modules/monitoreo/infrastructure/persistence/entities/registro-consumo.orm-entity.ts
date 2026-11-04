@@ -1,6 +1,8 @@
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { BoxeadorOrmEntity } from '../../../../usuarios/infrastructure/persistence/entities/boxeador.orm-entity';
-import { DecimalColumn } from '../../../../../shared/infrastructure/persistence/decorators/decimal-column.decorator';
+
+import { DecimalColumn } from '../../../../../shared/infrastructure/persistence/decorators';
+
+import { BoxeadorOrmEntity } from '../../../../usuarios/infrastructure/persistence/entities';
 
 @Entity('registros_consumo')
 export class RegistroConsumoOrmEntity {

@@ -1,4 +1,4 @@
-import { Gravedad } from "../enums/gravedad.enum";
+import { Gravedad } from "../enums";
 
 import { ReconstruirCambioEstado } from "./reconstruir-cambio-estado.input";
 

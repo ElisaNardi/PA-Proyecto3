@@ -2,17 +2,18 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
+import databaseConfig from './config/database.config';
+import jwtConfig from './config/jwt.config';
+
+import { JwtConfigModule } from './shared/infrastructure/security/jwt-config.module';
+import { UnitOfWorkModule } from './shared/infrastructure/unit-of-work/unit-of-work.module';
+
 import { AuthModule } from './modules/auth/auth.module';
 import { UsuariosModule } from './modules/usuarios/usuarios.module';
 import { EntrenamientosModule } from './modules/entrenamientos/entrenamientos.module';
 import { LesionesModule } from './modules/lesiones/lesiones.module';
 import { MonitoreoModule } from './modules/monitoreo/monitoreo.module';
 import { EvolucionModule } from './modules/evolucion/evolucion.module';
-import { UnitOfWorkModule } from './shared/infrastructure/unit-of-work/unit-of-work.module';
-
-import databaseConfig from './config/database.config';
-import jwtConfig from './config/jwt.config';
-import { JwtConfigModule } from './shared/infrastructure/security/jwt-config.module';
 
 @Module({
   imports: [
@@ -42,14 +43,14 @@ import { JwtConfigModule } from './shared/infrastructure/security/jwt-config.mod
         }),
     }),
 
-    UnitOfWorkModule,
     JwtConfigModule,
+    UnitOfWorkModule,
     AuthModule,
     UsuariosModule,
     EntrenamientosModule,
     LesionesModule,
     MonitoreoModule,
     EvolucionModule,
-  ],
+  ]
 })
 export class AppModule {}

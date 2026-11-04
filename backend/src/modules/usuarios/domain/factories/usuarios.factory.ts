@@ -1,7 +1,7 @@
-import { Medida } from "../../../../shared/domain/value-objects/medida.vo";
+import { Medida } from "../../../../shared/domain/value-objects";
 
 import { CrearBoxeadorInput, CrearEntrenadorInput, ReconstruirBoxeadorInput, ReconstruirEntrenadorInput } from "../inputs";
-import { Email } from "../value-objects/email.vo";
+import { Email } from "../value-objects";
 import { Boxeador, Entrenador } from "../entities";
 
 export class UsuariosFactory {

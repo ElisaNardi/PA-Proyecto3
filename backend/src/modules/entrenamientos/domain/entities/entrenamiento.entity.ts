@@ -1,4 +1,4 @@
-import { TipoEntrenamiento } from "../enums/tipo-entrenamiento.enum"
+import { TipoEntrenamiento } from "../enums"
 ;
 import { Objetivo } from "./objetivo.entity";
 import { Rutina } from "./rutina.entity";

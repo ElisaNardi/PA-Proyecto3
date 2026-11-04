@@ -1,5 +1,6 @@
-import { Rol } from "../../../../shared/domain/enums/rol.enum";
-import { Email } from "../value-objects/email.vo";
+import { Rol } from "../../../../shared/domain/enums";
+
+import { Email } from "../value-objects";
 
 export class Usuario {
     constructor(

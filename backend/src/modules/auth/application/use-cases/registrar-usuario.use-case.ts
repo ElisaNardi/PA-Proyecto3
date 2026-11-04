@@ -1,16 +1,16 @@
 import { Inject, Injectable } from "@nestjs/common";
 
-import { type IUnitOfWork, UNIT_OF_WORK_TOKEN } from "../../../../shared/application/unit-of-work/unit-of-work.port";
+import { type IUnitOfWork, UNIT_OF_WORK_TOKEN } from "../../../../shared/application/unit-of-work";
+import { Rol } from "../../../../shared/domain/enums";
 
-import { Rol } from "../../../../shared/domain/enums/rol.enum";
-import { UsuariosFactory } from "../../../usuarios/domain/factories/usuarios.factory";
-import { type IUsuariosRepository, USUARIOS_REPOSITORY_TOKEN } from "../../../usuarios/domain/ports/usuarios-repository.port";
+import { UsuariosFactory } from "../../../usuarios/domain/factories";
+import { type IUsuariosRepository, USUARIOS_REPOSITORY_TOKEN } from "../../../usuarios/domain/ports";
 
-import { UsuarioResponse } from "../responses/usuario.response";
-import { RegistrarUsuarioDto } from "../dtos/registrar-usuario.dto";
-import { UsuarioAuthResponseMapper } from "../mappers/usuarios-auth-response.mapper";
-import { EmailYaRegistradoException } from "../exceptions/email-ya-registrado.exception";
-import { type IHasher, HASHER_TOKEN } from "../ports/hasher.port";
+import { UsuarioResponse } from "../responses";
+import { RegistrarUsuarioDto } from "../dtos";
+import { UsuarioAuthResponseMapper } from "../mappers";
+import { EmailYaRegistradoException } from "../exceptions";
+import { type IHasher, HASHER_TOKEN } from "../ports";
 
 @Injectable()
 export class RegistrarUsuarioUseCase {

@@ -1,5 +1,5 @@
+import { UsuariosFactory } from "../../../domain/factories";
 import { Usuario, Boxeador, Entrenador } from "../../../domain/entities";
-import { UsuariosFactory } from "../../../domain/factories/usuarios.factory";
 
 import { UsuarioOrmEntity, BoxeadorOrmEntity, EntrenadorOrmEntity } from "../entities";
 

@@ -1,10 +1,8 @@
 import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common';
 
-import { AuthFacade } from '../../application/facades/auth.facade';
-import { RegistrarUsuarioDto } from '../../application/dtos/registrar-usuario.dto';
-import { AutenticarUsuarioDto } from '../../application/dtos/autenticar-usuario.dto';
-import { UsuarioResponse } from '../../application/responses/usuario.response';
-import { AutenticarUsuarioResponse } from '../../application/responses/autenticar-usuario.response';
+import { AuthFacade } from '../../application/facades';
+import { RegistrarUsuarioDto, AutenticarUsuarioDto } from '../../application/dtos';
+import { UsuarioResponse, AutenticarUsuarioResponse } from '../../application/responses';
 
 @Controller('auth')
 export class AuthController {

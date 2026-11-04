@@ -1,14 +1,14 @@
 import { Inject, Injectable, UnauthorizedException } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
 
-import { JwtPayload } from "../../../../shared/infrastructure/security/interfaces/jwt-payload.interface";
+import { JwtPayload } from "../../../../shared/infrastructure/security/interfaces";
 
-import { type IUsuariosRepository, USUARIOS_REPOSITORY_TOKEN } from "../../../usuarios/domain/ports/usuarios-repository.port";
+import { type IUsuariosRepository, USUARIOS_REPOSITORY_TOKEN } from "../../../usuarios/domain/ports";
 
-import { type IHasher, HASHER_TOKEN } from "../ports/hasher.port";
-import { AutenticarUsuarioDto } from "../dtos/autenticar-usuario.dto";
-import { AutenticarUsuarioResponse } from "../responses/autenticar-usuario.response";
-import { UsuarioAuthResponseMapper } from "../mappers/usuarios-auth-response.mapper";
+import { type IHasher, HASHER_TOKEN } from "../ports";
+import { AutenticarUsuarioDto } from "../dtos";
+import { AutenticarUsuarioResponse } from "../responses";
+import { UsuarioAuthResponseMapper } from "../mappers";
 
 @Injectable()
 export class AutenticarUsuarioUseCase {

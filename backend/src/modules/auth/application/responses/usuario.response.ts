@@ -1,4 +1,4 @@
-import { Rol } from "../../../../shared/domain/enums/rol.enum";
+import { Rol } from "../../../../shared/domain/enums";
 
 export interface UsuarioResponse {
     idUsuario: number;

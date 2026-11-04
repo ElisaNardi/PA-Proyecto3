@@ -1,5 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { Rol } from '../../../../../shared/domain/enums/rol.enum';
+
+import { Rol } from '../../../../../shared/domain/enums';
 
 @Entity('usuarios')
 export class UsuarioOrmEntity {
