@@ -1,10 +1,15 @@
 import { EstadoLesion } from "../enums";
 import { CrearLesionInput, ReconstruirLesionInput } from "../inputs";
 import { CambioEstadoLesion, Lesion } from "../entities";
+import { FechaLesionFuturaException } from "../exceptions";
 
 export class LesionesFactory {
     static crear(input: CrearLesionInput): Lesion {
-        const cambioEstado = CambioEstadoLesion.crear({ estadoNuevo: EstadoLesion.ACTIVA });
+        if (input.fecha > new Date()) {
+            throw new FechaLesionFuturaException();
+        }
+
+        const cambioEstado = CambioEstadoLesion.crear({ estadoNuevo: EstadoLesion.ACTIVA, fecha: input.fecha });
         return new Lesion(
             null,
             input.boxeadorId,

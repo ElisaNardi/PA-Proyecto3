@@ -24,7 +24,7 @@ export class VincularBoxeadorAEntrenadorUseCase {
     async execute(idEntrenadorRuta: number, idEntrenadorAutenticado: number, dto: VincularBoxeadorDto): Promise<VincularBoxeadorResponse> {
         AutorizacionValidator.validar(idEntrenadorRuta, idEntrenadorAutenticado);
 
-        const usuario = await this.finder.findOrFail(dto.idBoxeador);
+        const usuario = await this.finder.findByEmailOrFail(dto.email);
 
         if (usuario.getEntrenadorId() !== null) {
             throw new BoxeadorYaVinculadoException();
@@ -34,7 +34,7 @@ export class VincularBoxeadorAEntrenadorUseCase {
 
         return this.uow.runInTransaction(async () => {
             await this.repo.save(usuario);
-            return UsuariosResponseMapper.toVincularBoxeadorResponse(idEntrenadorRuta, dto.idBoxeador);
+            return UsuariosResponseMapper.toVincularBoxeadorResponse(idEntrenadorRuta, usuario.getId()!);
         });
     }
 }

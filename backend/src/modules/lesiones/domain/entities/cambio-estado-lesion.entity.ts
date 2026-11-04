@@ -14,7 +14,7 @@ export class CambioEstadoLesion {
             null,
             input.estadoAnterior ?? null,
             input.estadoNuevo,
-            new Date()
+            input.fecha ?? new Date()
         );
     }
 
