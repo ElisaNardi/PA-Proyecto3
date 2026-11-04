@@ -1,7 +1,6 @@
-import { IsInt, IsPositive } from "class-validator";
+import { IsEmail } from "class-validator";
 
 export class VincularBoxeadorDto {
-    @IsInt()
-    @IsPositive()
-    idBoxeador!: number;
+    @IsEmail()
+    email!: string;
 }

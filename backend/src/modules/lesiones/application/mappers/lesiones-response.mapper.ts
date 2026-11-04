@@ -1,6 +1,6 @@
-import { Lesion } from "../../domain/entities";
+import { CambioEstadoLesion, Lesion } from "../../domain/entities";
 
-import { LesionResponse, ActualizarEstadoLesionResponse } from "../responses";
+import { LesionResponse, ActualizarEstadoLesionResponse, LesionDetalleResponse, CambioEstadoResponse } from "../responses";
 
 export class LesionesResponseMapper {
     static toResponse(lesion: Lesion): LesionResponse {
@@ -18,12 +18,23 @@ export class LesionesResponseMapper {
         return {
             idLesion: lesion.getId()!,
             estado: lesion.getEstadoActual(),
-            cambios: lesion.getCambiosEstado().map(c => ({
-                idCambioEstadoLesion: c.getId()!,
-                estadoAnterior: c.getEstadoAnterior(),
-                estadoActual: c.getEstadoActual(),
-                fecha: c.getFecha().toISOString().slice(0, 10)
-            }))
+            cambios: lesion.getCambiosEstado().map(c => LesionesResponseMapper.toCambioEstadoResponse(c))
+        };
+    }
+
+    static toDetalleResponse(lesion: Lesion): LesionDetalleResponse {
+        return {
+            ...LesionesResponseMapper.toResponse(lesion),
+            cambios: lesion.getCambiosEstado().map(c => LesionesResponseMapper.toCambioEstadoResponse(c))
+        };
+    }
+
+    private static toCambioEstadoResponse(cambio: CambioEstadoLesion): CambioEstadoResponse {
+        return {
+            idCambioEstadoLesion: cambio.getId()!,
+            estadoAnterior: cambio.getEstadoAnterior(),
+            estadoActual: cambio.getEstadoActual(),
+            fecha: cambio.getFecha().toISOString().slice(0, 10)
         };
     }
 }

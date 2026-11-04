@@ -6,7 +6,7 @@ import { Roles, UsuarioAutenticado } from "../../../../../shared/infrastructure/
 import { Rol } from "../../../../../shared/domain/enums";
 
 import { RegistrarLesionDto, ActualizarEstadoLesionDto, ConsultarLesionesQueryDto } from "../../../application/dtos";
-import { LesionResponse, ActualizarEstadoLesionResponse } from "../../../application/responses";
+import { LesionResponse, ActualizarEstadoLesionResponse, LesionDetalleResponse } from "../../../application/responses";
 import { LesionesFacade } from "../../../application/facades";
 
 @Controller()
@@ -34,6 +34,15 @@ export class LesionesController {
         @Body() body: RegistrarLesionDto
     ): Promise<LesionResponse> {
         return this.facade.registrarLesion(idBoxeador, usuario.sub, body);
+    }
+
+    @Get('lesiones/:idLesion')
+    @UseGuards(JwtAuthGuard)
+    async obtenerLesion(
+        @Param('idLesion', ParseIntPipe) idLesion: number,
+        @UsuarioAutenticado() usuario: JwtPayload
+    ): Promise<LesionDetalleResponse> {
+        return this.facade.obtenerLesion(idLesion, usuario.sub, usuario.rol);
     }
 
     @Patch('lesiones/:idLesion/estado')

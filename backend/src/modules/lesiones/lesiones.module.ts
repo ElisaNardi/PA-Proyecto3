@@ -6,7 +6,8 @@ import { LesionesPersistenceModule } from './infrastructure/persistence/lesiones
 import { LesionesController } from './infrastructure/presentation/controllers';
 
 import { LesionesFacade } from './application/facades';
-import { RegistrarLesionUseCase, ActualizarEstadoLesionUseCase, ConsultarLesionesUseCase } from './application/use-cases';
+import { RegistrarLesionUseCase, ActualizarEstadoLesionUseCase, ConsultarLesionesUseCase, ObtenerLesionUseCase } from './application/use-cases';
+import { AccesoLesionesValidator } from './application/services';
 
 
 @Module({
@@ -21,6 +22,8 @@ import { RegistrarLesionUseCase, ActualizarEstadoLesionUseCase, ConsultarLesione
     RegistrarLesionUseCase,
     ActualizarEstadoLesionUseCase,
     ConsultarLesionesUseCase,
+    ObtenerLesionUseCase,
+    AccesoLesionesValidator,
     LesionesFacade
   ]
 })
