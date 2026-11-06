@@ -30,7 +30,6 @@ const I = {
 /* ================= DOMAIN HELPERS ================= */
 const CAT = [['MÍNIMO',47.6],['MOSCA',50.8],['GALLO',53.5],['PLUMA',57.2],['LIGERO',61.2],['WELTER',66.7],['MEDIANO',72.6],['SEMIPESADO',79.4],['CRUCERO',90.7],['PESADO',999]];
 const categoriaDe = p => (CAT.find(c => p <= c[1]) || CAT[CAT.length-1])[0];
-const imc = (peso,altura) => altura ? +(peso/(altura*altura)).toFixed(1) : null;
 const fmtFecha = d => { const x = d instanceof Date ? d : new Date(d); return x.toLocaleDateString('es-AR',{day:'2-digit',month:'2-digit',year:'numeric'}); };
 const fmtFechaCorta = d => { const x = d instanceof Date ? d : new Date(d); return x.toLocaleDateString('es-AR',{day:'2-digit',month:'2-digit'}); };
 const todayISO = () => new Date().toISOString().slice(0,10);
@@ -329,14 +328,14 @@ const VIEWS_BOXEADOR = {
         </div>
         <div class="actions between">
           <button class="btn" type="submit">Guardar medición</button>
-          ${ultima ? `<span class="mu">IMC actual: <b class="num" style="color:var(--ink)">${imc(ultima.peso,ultima.altura)}</b> · Categoría <b style="color:var(--ink)">${categoriaDe(ultima.peso)}</b></span>` : ''}
+          ${ultima ? `<span class="mu">Categoría <b style="color:var(--ink)">${categoriaDe(ultima.peso)}</b></span>` : ''}
         </div>
       </form>
     </div>
     <div class="card">
       <h3 class="sec">Historial</h3>
-      ${hist.length ? `<div class="table-wrap"><table><tr><th>Fecha</th><th>Peso</th><th>% grasa</th><th>IMC</th></tr>
-        ${[...hist].reverse().map(m=>`<tr><td>${fmtFecha(m.fecha)}</td><td class="num">${m.peso} kg</td><td class="num">${m.grasa??'—'}%</td><td class="num">${imc(m.peso,m.altura)}</td></tr>`).join('')}
+      ${hist.length ? `<div class="table-wrap"><table><tr><th>Fecha</th><th>Peso</th><th>% grasa</th></tr>
+        ${[...hist].reverse().map(m=>`<tr><td>${fmtFecha(m.fecha)}</td><td class="num">${m.peso} kg</td><td class="num">${m.grasa??'—'}%</td></tr>`).join('')}
       </table></div>` : empty('Todavía no registraste mediciones')}
     </div>`;
   },
@@ -408,7 +407,6 @@ const VIEWS_BOXEADOR = {
     `<div class="grid">
       <div class="stat"><div class="lbl">Peso</div><div class="val">${deltaPeso>0?'+':''}${deltaPeso}<span class="u">kg</span></div>${bar(50+(-deltaPeso*10),true)}</div>
       <div class="stat"><div class="lbl">Rutinas cumplidas</div><div class="val">${pctCumpl}<span class="u">%</span></div>${bar(pctCumpl,true)}</div>
-      <div class="stat"><div class="lbl">IMC actual</div><div class="val">${last?imc(last.peso,last.altura):'—'}</div>${bar(last?(imc(last.peso,last.altura)/35*100):0,true)}</div>
       <div class="stat"><div class="lbl">Calorías vs meta</div><div class="val">${pctKcal??'—'}<span class="u">${pctKcal!==null?'%':''}</span></div>${bar(pctKcal||0,true)}</div>
     </div>`;
   },
@@ -445,7 +443,7 @@ const VIEWS_ENTRENADOR = {
     if(S.boxTab==='resumen'){
       body = `<div class="grid two">
         <div class="stat"><div class="lbl">Peso actual</div><div class="val">${m?m.peso:'—'}<span class="u">kg</span></div><span class="mu">${m?'Categoría '+categoriaDe(m.peso):'Sin mediciones'}</span></div>
-        <div class="stat"><div class="lbl">IMC</div><div class="val">${m?imc(m.peso,m.altura):'—'}</div><span class="mu">Última medición ${m?fmtFecha(m.fecha):'—'}</span></div>
+        <div class="stat"><div class="lbl">Categoría de peso</div><div class="val">${m?categoriaDe(m.peso):'—'}</div><span class="mu">Última medición ${m?fmtFecha(m.fecha):'—'}</span></div>
       </div>
       ${activa ? `<div class="warn-box">${I.warn}<div><b>Lesión activa:</b> ${esc(activa.zona)} (${activa.gravedad.toLowerCase()}). Tenela en cuenta al planificar.</div></div>` : ''}
       <div class="card"><h3 class="sec">Historial de mediciones</h3>
@@ -494,7 +492,6 @@ const VIEWS_ENTRENADOR = {
         <tr><th></th><th>${fmtFecha(first.fecha)}</th><th>${fmtFecha(last.fecha)}</th><th>Cambio</th></tr>
         <tr><td>Peso</td><td class="num">${first.peso} kg</td><td class="num">${last.peso} kg</td><td class="num">${(last.peso-first.peso).toFixed(1)} kg</td></tr>
         <tr><td>% grasa</td><td class="num">${first.grasa??'—'}</td><td class="num">${last.grasa??'—'}</td><td class="num">${first.grasa&&last.grasa?(last.grasa-first.grasa):'—'}</td></tr>
-        <tr><td>IMC</td><td class="num">${imc(first.peso,first.altura)}</td><td class="num">${imc(last.peso,last.altura)}</td><td class="num">${(imc(last.peso,last.altura)-imc(first.peso,first.altura)).toFixed(1)}</td></tr>
       </table></div></div>` : empty('Hacen falta al menos dos mediciones para comparar evolución');
     }
     return `<div class="breadcrumb"><button data-a="go" data-v="inicio">${I.back} Mis boxeadores</button></div>` +
@@ -529,7 +526,6 @@ const VIEWS_ENTRENADOR = {
     (first && last ? `<div class="card"><h3 class="sec">${esc(b.nombre)}</h3><div class="table-wrap"><table>
       <tr><th></th><th>${fmtFecha(first.fecha)}</th><th>${fmtFecha(last.fecha)}</th><th>Cambio</th></tr>
       <tr><td>Peso</td><td class="num">${first.peso} kg</td><td class="num">${last.peso} kg</td><td class="num">${(last.peso-first.peso).toFixed(1)} kg</td></tr>
-      <tr><td>IMC</td><td class="num">${imc(first.peso,first.altura)}</td><td class="num">${imc(last.peso,last.altura)}</td><td class="num">${(imc(last.peso,last.altura)-imc(first.peso,first.altura)).toFixed(1)}</td></tr>
     </table></div></div>` : empty('Hacen falta al menos dos mediciones para este boxeador'));
   },
 };
@@ -631,7 +627,7 @@ document.addEventListener('submit', e => {
     DB.mediciones[me] = DB.mediciones[me] || [];
     DB.mediciones[me].push({ fecha:todayISO(), peso, altura, grasa:+document.getElementById('mf-grasa').value || null,
       cintura:+document.getElementById('mf-cintura').value || null, env:+document.getElementById('mf-env').value || null });
-    toast(`Medición guardada · IMC ${imc(peso,altura)} · categoría ${categoriaDe(peso)}`, true); render(); return;
+    toast(`Medición guardada · categoría ${categoriaDe(peso)}`, true); render(); return;
   }
   if(f.id === 'refForm'){
     const me = S.session.id;
