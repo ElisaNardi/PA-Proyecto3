@@ -2,6 +2,7 @@ import { useNavigate, useParams, useSearchParams } from 'react-router';
 import axios from 'axios';
 
 import { getApiErrorMessage } from '../../../core/api';
+import { PanelEvolucion } from '../../evolucion';
 import { ListaLesiones } from '../../lesiones';
 import { Button, Cargando, Empty, IconBack, ViewHeader } from '../../../shared/ui';
 import { etiquetaEnum } from '../../../shared/utils';
@@ -99,9 +100,8 @@ export default function PerfilBoxeadorPage() {
       <div role="tabpanel">
         {pestana === 'resumen' && <ResumenBoxeador perfil={perfil} />}
         {pestana === 'lesiones' && <ListaLesiones idBoxeador={perfil.idBoxeador} soloLectura />}
-        {(pestana === 'entrenamientos' || pestana === 'nutricion' || pestana === 'evolucion') && (
-          <Empty titulo="En construcción" />
-        )}
+        {pestana === 'evolucion' && <PanelEvolucion idBoxeador={perfil.idBoxeador} comparar />}
+        {(pestana === 'entrenamientos' || pestana === 'nutricion') && <Empty titulo="En construcción" />}
       </div>
     </>
   );
